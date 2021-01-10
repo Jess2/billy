@@ -1,0 +1,44 @@
+import {createGlobalStyle} from "styled-components";
+import reset from "styled-reset";
+
+const globalStyles = createGlobalStyle`
+     ${reset};
+     * {
+         box-sizing: border-box;
+     }
+     body{
+         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+         font-size: 14px;
+     }
+     a {
+         text-decoration: none;
+         color: inherit;
+     }
+     h1, h2, h3, h4, h5, h6 {
+        font-weight: bold;
+     }
+     h1 {
+        font-size: 2.2rem;
+     }
+     h2 {
+        font-size: 2rem;
+     }
+     h3 {
+        font-size: 1.8rem;
+     }
+     h4 {
+        font-size: 1.6rem;
+     }
+     h5 {
+        font-size: 1.4rem;
+     }
+     h6 {
+        font-size: 1.2rem;
+     }
+     button {
+       border: none;
+       background-color: transparent;
+       cursor: pointer;
+     }
+ `;
+export default globalStyles;
