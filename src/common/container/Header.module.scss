@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1vw 2vw;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e9ecef;
+
+  .header__logo {
+    .logo h1 {
+      color: #919191;
+    }
+  }
+
+  .header__settings {
+  }
+}
