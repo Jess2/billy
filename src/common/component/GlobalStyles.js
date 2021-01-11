@@ -39,6 +39,15 @@ const globalStyles = createGlobalStyle`
        border: none;
        background-color: transparent;
        cursor: pointer;
-     }
+    }
+    input, textarea {
+        border: 1px solid #dbdbdb;
+        border-radius: 5px;
+        width: 100%;
+        padding: 0.7em;
+    }
+    .btn--basic {
+        background-color: yellow;
+    }
  `;
 export default globalStyles;
