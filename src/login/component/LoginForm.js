@@ -15,13 +15,16 @@ const StyledForm = styled.form`
 export default function LoginForm() {
     return <>
         <StyledForm>
-            <label htmlFor={'user-id'}>
-                <input id={'user-id'} type={'text'} placeholder={'Email ID'}/>
+            <label htmlFor="user-id">
+                <input id="user-id" type="text" placeholder="Email ID"/>
             </label>
-            <label htmlFor={'user-pw'}>
-                <input id={'user-pw'} type={'text'} placeholder={'Password'}/>
+            <label htmlFor="user-pw">
+                <input id="user-pw" type="text" placeholder="Password"/>
             </label>
-            <Button type={'submit'} color={'pink'}>SIGN IN</Button>
+            <Button type="submit" color="pink" size="large">SIGN IN</Button>
+            <Button type="submit">SIGN IN</Button>
+            <Button type="submit" outline>SIGN IN</Button>
+            <Button type="submit" fullWidth>SIGN IN</Button>
         </StyledForm>
     </>;
 }
