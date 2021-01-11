@@ -35,11 +35,6 @@ const globalStyles = createGlobalStyle`
      h6 {
         font-size: 1.2rem;
      }
-     button {
-       border: none;
-       background-color: transparent;
-       cursor: pointer;
-    }
     input, textarea {
         border: 1px solid #dbdbdb;
         border-radius: 5px;
