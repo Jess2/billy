@@ -21,7 +21,7 @@ export default function LoginForm() {
             <label htmlFor={'user-pw'}>
                 <input id={'user-pw'} type={'text'} placeholder={'Password'}/>
             </label>
-            <Button type={'submit'}>SIGN IN</Button>
+            <Button type={'submit'} color={'pink'}>SIGN IN</Button>
         </StyledForm>
     </>;
 }
