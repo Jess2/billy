@@ -1,12 +1,12 @@
 import React from 'react';
 import GlobalStyles from './common/component/GlobalStyles';
 import Header from "./common/container/Header";
-import Main from "./main/container/Main";
+import Login from "./login/container/Login";
 
 export default function App() {
   return <>
     <Header />
-    <Main />
+    <Login />
     <GlobalStyles />
   </>;
 }
