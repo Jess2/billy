@@ -60,8 +60,7 @@ const fullWidthStyle = css`
       width: 100%;
       justify-content: center;
       & + & {
-        margin-left: 0;
-        margin-top: 1rem;
+        margin-left: 1rem;
       }
     `}
 `;

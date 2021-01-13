@@ -1,10 +1,20 @@
 import React from 'react';
-import Style from './Login.module.scss';
-import cn from 'classnames';
+import styled from 'styled-components';
 import LoginForm from "../component/LoginForm";
 
 export default function Login() {
-  return <div className={cn(Style.login)}>
-    <LoginForm></LoginForm>
-  </div>;
+
+  const StyledLogin = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100vh - 60px);
+  `;
+
+  return (
+    <StyledLogin>
+      <LoginForm></LoginForm>
+    </StyledLogin>
+  );
 }

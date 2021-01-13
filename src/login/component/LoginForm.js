@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Button from '../../common/component/Button';
+import {Link} from "react-router-dom";
 
 const StyledForm = styled.form`
   display: flex;
@@ -25,6 +26,8 @@ export default function LoginForm() {
       <Button type="submit">SIGN IN</Button>
       <Button type="submit" outline>SIGN IN</Button>
       <Button type="submit" fullWidth>SIGN IN</Button>
+
+      <Link to="/list">List</Link>
     </StyledForm>
   </>;
 }

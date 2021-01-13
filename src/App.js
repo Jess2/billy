@@ -1,24 +1,15 @@
-import React, { useState } from 'react';
-import GlobalStyles from './common/component/GlobalStyles';
-import styled, {ThemeProvider} from 'styled-components';
+import React from "react";
+import { Route } from "react-router-dom";
+import GlobalStyles from "./common/component/GlobalStyles";
+import { ThemeProvider } from "styled-components";
 import Header from "./common/container/Header";
 import Login from "./login/container/Login";
-import Dialog from "./common/component/Dialog";
-import Button from "./common/component/Button";
+import List from "./list/container/List";
+import Detail from "./detail/container/Detail";
+import Create from "./create/container/Create";
+import Edit from "./edit/container/Edit";
 
 export default function App() {
-  const [dialog, setDialog] = useState(false);
-  const onClick = () => {
-    setDialog(true);
-  };
-  const onConfirm = () => {
-    console.log('확인')
-    setDialog(false);
-  };
-  const onCancel = () => {
-    console.log('취소')
-    setDialog(false);
-  };
   return (
     <ThemeProvider
       theme={{
@@ -31,17 +22,12 @@ export default function App() {
     >
       <>
         <Header/>
-        {/*<Login/>*/}
-        <Button onClick={onClick}>로그아웃</Button>
+        <Route path="/" exact component={Login} />
+        <Route path="/list" component={List} />
+        <Route path="/detail" component={Detail} />
+        <Route path="/create" component={Create} />
+        <Route path="/edit" component={Edit} />
         <GlobalStyles/>
-        <Dialog
-          title="로그아웃"
-          contents="로그아웃 하시겠습니까?"
-          onConfirm={onConfirm}
-          onCancel={onCancel}
-          isVisible={dialog}
-        >
-        </Dialog>
       </>
     </ThemeProvider>
   );
