@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from "../component/Button";
 import Dialog from "../component/Dialog";
@@ -39,7 +40,9 @@ export default function Header() {
   return (
     <StyledHeader>
       <div>
-        <h1>Billy Rental</h1>
+        <h1>
+          <Link to="/">Billy Rental</Link>
+        </h1>
       </div>
       <div>
         <Button onClick={onClickHelp}>서비스 문의</Button>
