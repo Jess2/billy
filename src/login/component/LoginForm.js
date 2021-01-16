@@ -4,30 +4,37 @@ import Button from '../../common/component/Button';
 import {Link} from "react-router-dom";
 
 const StyledForm = styled.form`
-  display: flex;
-  justify-content: space-between;
+  width: 100%;
   align-items: center;
-  height: 60px;
-  padding: 0 2vw;
-  background-color: #ffffff;
-  border-bottom: 1px solid #e9ecef;
+  padding: 50px 40px;
+  text-align: center;
+  border: 1px solid #e9ecef;
+  border-radius: 10px;
+  
+  input {
+    margin: 10px 0;
+  }
+  
+  button {
+    margin-top: 30px;
+    min-width: 50%;
+    text-align: center;
+    max-width: 100%;
+  }
 `;
 
 export default function LoginForm() {
   return <>
     <StyledForm>
-      <label htmlFor="user-id">
-        <input id="user-id" type="text" placeholder="Email ID"/>
-      </label>
-      <label htmlFor="user-pw">
-        <input id="user-pw" type="text" placeholder="Password"/>
-      </label>
-      <Button type="submit" color="pink" size="large">SIGN IN</Button>
-      <Button type="submit">SIGN IN</Button>
-      <Button type="submit" outline>SIGN IN</Button>
-      <Button type="submit" fullWidth>SIGN IN</Button>
-
-      <Link to="/list">List</Link>
+      <label htmlFor="user-id" />
+      <input id="user-id" type="text" placeholder="Email ID"/>
+      <label htmlFor="user-pw" />
+      <input id="user-pw" type="text" placeholder="Password"/>
+      <Link to="/list">
+        <Button type="submit">
+          SIGN IN
+        </Button>
+      </Link>
     </StyledForm>
   </>;
 }
