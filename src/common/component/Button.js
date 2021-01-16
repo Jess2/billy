@@ -67,8 +67,7 @@ const fullWidthStyle = css`
 
 const StyledButton = styled.button`
   /* 공통 스타일 */
-  display: inline-flex;
-  align-items: center;
+  display: inline-block;
   outline: none;
   border: none;
   border-radius: 4px;
@@ -77,6 +76,7 @@ const StyledButton = styled.button`
   cursor: pointer;
   padding-left: 1rem;
   padding-right: 1rem;
+  text-align: center;
   
   /* 크기 */
   ${sizeStyles}

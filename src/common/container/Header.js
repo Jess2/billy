@@ -32,7 +32,7 @@ export default function Header() {
     background-color: #ffffff;
     border-bottom: 1px solid #e9ecef;
     
-    h1 {
+    h5 {
       color: #919191;
     }
   `;
@@ -40,9 +40,9 @@ export default function Header() {
   return (
     <StyledHeader>
       <div>
-        <h1>
+        <h5>
           <Link to="/">Billy Rental</Link>
-        </h1>
+        </h5>
       </div>
       <div>
         <Button onClick={onClickHelp}>서비스 문의</Button>

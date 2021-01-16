@@ -9,6 +9,7 @@ const globalStyles = createGlobalStyle`
   body{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 14px;
+    min-width: 500px;
   }
   a {
     text-decoration: none;
@@ -43,6 +44,11 @@ const globalStyles = createGlobalStyle`
   }
   .btn--basic {
     background-color: yellow;
+  }
+  a, button {
+    &:focus {
+      outline: none;
+    }
   }
 `;
 export default globalStyles;
