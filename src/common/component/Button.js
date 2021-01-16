@@ -107,7 +107,7 @@ function Button({children, color, size, outline, fullWidth, ...rest}) {
 }
 
 Button.defaultProps = {
-  color: 'blue',
+  color: 'gray',
   size: 'medium',
 };
 

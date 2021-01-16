@@ -16,7 +16,7 @@ export default function App() {
       theme={{
         palette: {
           blue: '#228be6',
-          gray: '#495057',
+          gray: '#919191',
           pink: '#f06595',
         }
       }}

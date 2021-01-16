@@ -1,6 +1,8 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, {useState} from "react";
+import {Link} from "react-router-dom";
 import styled from 'styled-components';
+import Button from "../../common/component/Button";
+import PageHeader from "../../common/component/PageHeader";
 
 const StyledWrapper = styled.div`
   padding: 3vw;
@@ -54,45 +56,47 @@ export default function List() {
       },
     }
   ]);
-  const id = '12345';
-  return <StyledWrapper>
-    <h1>List</h1>
-    <Link to="/create">+ Add</Link>
-    <br />
-    <Link to={`/detail/${id}`}>Detail</Link>
-    <StyledList>
-      <li>No.</li>
-      <li>분류</li>
-      <li>구입년월</li>
-      <li>관리번호</li>
-      <li>제조사</li>
-      <li>제품명</li>
-      <li>모델명</li>
-      <li>제품번호</li>
-      <li>규격/설명</li>
-      <li>추가정보</li>
-      <li>물품 위치</li>
-      <li>관련 사업</li>
-      <li>대여 상태</li>
-    </StyledList>
-    {
-      equipments.map(eqp => (
-        <StyledList key={eqp.id}>
-          <li>{eqp.id}</li>
-          <li>{eqp.type}</li>
-          <li>{eqp.purchaseDate || '-'}</li>
-          <li>{eqp.regCode || '-'}</li>
-          <li>{eqp.manufacturer || '-'}</li>
-          <li>{eqp.productName || '-'}</li>
-          <li>{eqp.modelName || '-'}</li>
-          <li>{eqp.productCode || '-'}</li>
-          <li>{eqp.specification || '-'}</li>
-          <li>{eqp.description || '-'}</li>
-          <li>{eqp.currentLocation || '-'}</li>
-          <li>{eqp.relBusiness || '-'}</li>
-          <li>{eqp.isBilly ? '대여 중' : '-'}</li>
-        </StyledList>
-      ))
-    }
-  </StyledWrapper>;
+  return (
+    <StyledWrapper>
+      <PageHeader title='장비 목록'>
+        <Link to="/create">
+          <Button size='small' color='blue' outline>+ Add</Button>
+        </Link>
+      </PageHeader>
+      <StyledList>
+        <li>No.</li>
+        <li>분류</li>
+        <li>구입년월</li>
+        <li>관리번호</li>
+        <li>제조사</li>
+        <li>제품명</li>
+        <li>모델명</li>
+        <li>제품번호</li>
+        <li>규격/설명</li>
+        <li>추가정보</li>
+        <li>물품 위치</li>
+        <li>관련 사업</li>
+        <li>대여 상태</li>
+      </StyledList>
+      {
+        equipments.map(eqp => (
+          <StyledList key={eqp.id}>
+            <li>{eqp.id}</li>
+            <li>{eqp.type}</li>
+            <li>{eqp.purchaseDate || '-'}</li>
+            <li>{eqp.regCode || '-'}</li>
+            <li>{eqp.manufacturer || '-'}</li>
+            <li>{eqp.productName || '-'}</li>
+            <li>{eqp.modelName || '-'}</li>
+            <li>{eqp.productCode || '-'}</li>
+            <li>{eqp.specification || '-'}</li>
+            <li>{eqp.description || '-'}</li>
+            <li>{eqp.currentLocation || '-'}</li>
+            <li>{eqp.relBusiness || '-'}</li>
+            <li>{eqp.isBilly ? '대여 중' : '-'}</li>
+          </StyledList>
+        ))
+      }
+    </StyledWrapper>
+  );
 }
