@@ -15,8 +15,6 @@ export default function Create() {
   const [newEqp, setNewEqp] = useState({});
   const history = useHistory();
 
-  console.log(setEquipments, '00',  SetEqpContext)
-
   function onChangeInput(e) {
     setNewEqp({...newEqp, [e.target.name]: e.target.value})
   }
