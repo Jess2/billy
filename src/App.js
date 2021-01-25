@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {Route} from "react-router-dom";
+import styled from "styled-components";
 import GlobalStyles from "./common/component/GlobalStyles";
 import {ThemeProvider} from "styled-components";
 import { EqpContext, SetEqpContext } from "./common/context/equipments";
@@ -9,6 +10,11 @@ import List from "./list/container/List";
 import Detail from "./detail/container/Detail";
 import Create from "./create/container/Create";
 import Edit from "./edit/container/Edit";
+
+const StyledBody = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+`
 
 export default function App() {
   const [equipments, setEquipments] = useState([
@@ -53,11 +59,13 @@ export default function App() {
         <SetEqpContext.Provider value={setEquipments}>
           <EqpContext.Provider value={equipments}>
             <Header/>
-            <Route path="/" exact component={Login}/>
-            <Route path="/list" component={List}/>
-            <Route path="/detail" component={Detail}/>
-            <Route path="/create" component={Create}/>
-            <Route path="/edit" component={Edit}/>
+            <StyledBody>
+              <Route path="/" exact component={Login}/>
+              <Route path="/list" component={List}/>
+              <Route path="/detail" component={Detail}/>
+              <Route path="/create" component={Create}/>
+              <Route path="/edit" component={Edit}/>
+            </StyledBody>
             <GlobalStyles/>
           </EqpContext.Provider>
         </SetEqpContext.Provider>

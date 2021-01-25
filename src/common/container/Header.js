@@ -28,7 +28,8 @@ export default function Header() {
     justify-content: space-between;
     align-items: center;
     height: 60px;
-    padding: 0 3vw;
+    margin: 0 auto;
+    padding: 0 calc((100% - 1200px) / 2);
     background-color: #ffffff;
     border-bottom: 1px solid #e9ecef;
     

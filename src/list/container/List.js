@@ -6,7 +6,7 @@ import Button from "../../common/component/Button";
 import PageHeader from "../../common/component/PageHeader";
 
 const StyledWrapper = styled.div`
-  padding: 3vw;
+  padding: 3vw 0;
 `;
 
 const StyledList = styled.ul`

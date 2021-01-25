@@ -6,7 +6,7 @@ import Button from "../../common/component/Button";
 import {Link, useHistory} from "react-router-dom";
 
 const StyledWrapper = styled.div`
-  padding: 3vw;
+  padding: 3vw 0;
 `;
 
 export default function Create() {
