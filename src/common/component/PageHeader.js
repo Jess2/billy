@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, {css} from 'styled-components';
+import styled from 'styled-components';
 
 const StyledPageHeader = styled.div`
   display: flex;
@@ -19,13 +19,21 @@ const StyledPageHeader = styled.div`
       margin-right: 10px;
     }
   }
+  
+  .children {
+    > * {
+      margin-left: 10px;
+    }
+  }
 `;
 
 function PageHeader({children, title}) {
   return (
     <StyledPageHeader>
       <h4>{title}</h4>
-      {children}
+      <div className='children'>
+        {children}
+      </div>
     </StyledPageHeader>
   );
 }

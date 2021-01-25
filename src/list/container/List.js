@@ -1,5 +1,6 @@
-import React, {useState} from "react";
+import React, { useContext } from "react";
 import {Link} from "react-router-dom";
+import { EqpContext } from "../../common/context/equipments";
 import styled from 'styled-components';
 import Button from "../../common/component/Button";
 import PageHeader from "../../common/component/PageHeader";
@@ -11,7 +12,6 @@ const StyledWrapper = styled.div`
 const StyledList = styled.ul`
   width: 100%;
   padding: 1em 0;
-  // border-top: 1px solid #e9ecef;
   border-bottom: 1px solid #e9ecef;
   
   li {
@@ -29,33 +29,8 @@ const StyledList = styled.ul`
 `;
 
 export default function List() {
-  const [equipments, setEquipments] = useState([
-    {
-      id: 1,
-      type: 'Smart Phone',
-      purchaseDate: '2017-04-01', //구입년월
-      createDT: '2018-03-27',
-      UpdateDT: '2020-12-07',
-      productCode: 'F4HSW3AGHG7K', // 제품번호
-      productName: 'iPhone 7', // 제품명
-      modelName: 'A1905', // 모델명
-      manufacturer: 'APPLE', // 제조사
-      regCode: 'MPH-1712-022(T)', // 관리 번호
-      specification: '블랙,128GB,KT', // 규격/설명
-      description: '', // 추가 정보
-      relBusiness: '', // 관련 사업
-      isBilly: true, // 대여 상태
-      currentLocation: '', // 물품 위치
-      billyUser: {
-        id: '117',
-        name: 'jessie',
-        role: "u",
-        email: 'test@g.com',
-        createDT: "2020-02-26",
-        updateDT: "2021-01-04",
-      },
-    }
-  ]);
+  const equipments = useContext(EqpContext);
+
   return (
     <StyledWrapper>
       <PageHeader title='장비 목록'>
@@ -78,7 +53,7 @@ export default function List() {
         <li>관련 사업</li>
         <li>대여 상태</li>
       </StyledList>
-      {
+      { equipments &&
         equipments.map(eqp => (
           <StyledList key={eqp.id}>
             <li>{eqp.id}</li>
