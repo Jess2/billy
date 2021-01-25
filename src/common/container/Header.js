@@ -46,8 +46,8 @@ export default function Header() {
         </h5>
       </div>
       <div>
-        <Button onClick={onClickHelp}>서비스 문의</Button>
-        <Button onClick={onClick}>로그아웃</Button>
+        <Button size='small' outline onClick={onClickHelp}>Help</Button>
+        <Button size='small' color='pink' outline onClick={onClick}>Sign Out</Button>
       </div>
       <Dialog
         title="로그아웃"

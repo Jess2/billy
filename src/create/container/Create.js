@@ -4,6 +4,7 @@ import {EqpContext, SetEqpContext} from "../../common/context/equipments";
 import PageHeader from "../../common/component/PageHeader";
 import Button from "../../common/component/Button";
 import {Link, useHistory} from "react-router-dom";
+import {getEquipments, postEquipment} from "../../common/api/equipments";
 
 const StyledWrapper = styled.div`
   padding: 3vw 0;
@@ -20,12 +21,14 @@ export default function Create() {
   }
 
   function findNextId() {
-    return equipments[equipments.length - 1].id + 1;
+    return equipments.length > 0 ? equipments[equipments.length - 1].id + 1 : 1;
   }
 
   function onClickSave() {
     newEqp.id = findNextId();
-    setEquipments([...equipments, newEqp]);
+    postEquipment(newEqp).then(data => {
+      setEquipments([...equipments, newEqp]);
+    });
     history.push('/list');
   }
 
