@@ -1,0 +1,13 @@
+{
+  "plugins": [
+    "transform-react-jsx-source",
+    [
+      "module-resolver",
+      {
+        "alias": {
+          "~/*": "./src"
+        }
+      }
+    ]
+  ]
+}
