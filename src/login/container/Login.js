@@ -25,7 +25,7 @@ export default function Login() {
     <StyledWrapper>
       <StyledLogin>
         <StyledLogo>
-          Billy Rental
+          Billy
         </StyledLogo>
         <LoginForm></LoginForm>
       </StyledLogin>

@@ -1,4 +1,4 @@
-# Billy Rental
+# Billy
 > 💻 장비 관리 및 렌탈 시스템
 
 ## 서비스 소개

@@ -42,7 +42,7 @@ export default function Header() {
     <StyledHeader>
       <div>
         <h5>
-          <Link to="/">Billy Rental</Link>
+          <Link to="/">Billy</Link>
         </h5>
       </div>
       <div>
