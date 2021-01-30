@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/billy-rental/static/js/main.df336189.chunk.js",
+    "main.js.map": "/billy-rental/static/js/main.df336189.chunk.js.map",
+    "runtime-main.js": "/billy-rental/static/js/runtime-main.2b5f9469.js",
+    "runtime-main.js.map": "/billy-rental/static/js/runtime-main.2b5f9469.js.map",
+    "static/js/2.35965319.chunk.js": "/billy-rental/static/js/2.35965319.chunk.js",
+    "static/js/2.35965319.chunk.js.map": "/billy-rental/static/js/2.35965319.chunk.js.map",
+    "index.html": "/billy-rental/index.html",
+    "static/js/2.35965319.chunk.js.LICENSE.txt": "/billy-rental/static/js/2.35965319.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2b5f9469.js",
+    "static/js/2.35965319.chunk.js",
+    "static/js/main.df336189.chunk.js"
+  ]
+}
