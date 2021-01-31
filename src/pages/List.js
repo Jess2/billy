@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
+import React, {useEffect, useState} from "react";
 import {Link, useHistory} from "react-router-dom";
-import { EqpContext } from "../context/equipments";
 import styled from 'styled-components';
 import Button from "../components/atoms/Button";
 import PageHeader from "../components/molecules/PageHeader";
+import {getEquipments} from "../api/equipments";
 
 const StyledWrapper = styled.div`
   padding: 3vw 0;
@@ -34,8 +34,14 @@ const StyledList = styled.ul`
 `;
 
 export default function List() {
-  const equipments = useContext(EqpContext);
+  const [equipments, setEquipments] = useState([]);
   const history = useHistory();
+
+  useEffect(() => {
+    getEquipments().then(data => {
+      setEquipments(data);
+    });
+  }, []);
 
   const onClickEqp = (eqp) => {
     history.push(`/detail/${eqp.id}`);

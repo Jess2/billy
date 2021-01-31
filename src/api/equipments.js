@@ -31,6 +31,19 @@ export function getEquipment(id) {
   });
 }
 
+export function deleteEquipment(id) {
+  return new Promise(result => {
+    setTimeout(() => {
+      const equipments = JSON.parse(localStorage.getItem('equipments'));
+      const newEquipments = equipments.filter(eqp => {
+        return eqp.id !== Number(id);
+      });
+      localStorage.setItem('equipments', JSON.stringify(newEquipments));
+      result(newEquipments);
+    });
+  });
+}
+
 const sampleEquipments = [
   {
     id: 1,
