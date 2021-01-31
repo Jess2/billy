@@ -1,16 +1,16 @@
 import React, {useState, useEffect} from "react";
 import {Route} from "react-router-dom";
 import styled from "styled-components";
-import GlobalStyles from "./common/component/GlobalStyles";
+import GlobalStyles from "./components/atoms/GlobalStyles";
 import {ThemeProvider} from "styled-components";
-import { EqpContext, SetEqpContext } from "./common/context/equipments";
-import { getEquipments } from './common/api/equipments';
-import Header from "./common/container/Header";
-import Login from "./login/container/Login";
-import List from "./list/container/List";
-import Detail from "./detail/container/Detail";
-import Create from "./create/container/Create";
-import Edit from "./edit/container/Edit";
+import { EqpContext, SetEqpContext } from "./context/equipments";
+import { getEquipments } from './api/equipments';
+import Header from "./components/organisms/Header";
+import Login from "./pages/Login";
+import List from "./pages/List";
+import Detail from "./pages/Detail";
+import Create from "./pages/Create";
+import Edit from "./pages/Edit";
 
 const StyledBody = styled.div`
   max-width: 1200px;
@@ -31,6 +31,7 @@ export default function App() {
           blue: '#228be6',
           gray: '#919191',
           pink: '#f06595',
+          red: '#ff0000',
         }
       }}
     >
@@ -41,7 +42,7 @@ export default function App() {
             <StyledBody>
               <Route path="/" exact component={Login}/>
               <Route path="/list" component={List}/>
-              <Route path="/detail" component={Detail}/>
+              <Route path="/detail/:id" component={Detail}/>
               <Route path="/create" component={Create}/>
               <Route path="/edit" component={Edit}/>
             </StyledBody>

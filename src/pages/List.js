@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import {Link} from "react-router-dom";
-import { EqpContext } from "../../common/context/equipments";
+import {Link, useHistory} from "react-router-dom";
+import { EqpContext } from "../context/equipments";
 import styled from 'styled-components';
-import Button from "../../common/component/Button";
-import PageHeader from "../../common/component/PageHeader";
+import Button from "../components/atoms/Button";
+import PageHeader from "../components/molecules/PageHeader";
 
 const StyledWrapper = styled.div`
   padding: 3vw 0;
@@ -13,6 +13,11 @@ const StyledList = styled.ul`
   width: 100%;
   padding: 1em 0;
   border-bottom: 1px solid #e9ecef;
+  cursor: pointer;
+    
+  &:hover {
+    background-color: #eeeeee;
+  }
   
   li {
     display: inline-block;
@@ -30,6 +35,11 @@ const StyledList = styled.ul`
 
 export default function List() {
   const equipments = useContext(EqpContext);
+  const history = useHistory();
+
+  const onClickEqp = (eqp) => {
+    history.push(`/detail/${eqp.id}`);
+  };
 
   return (
     <StyledWrapper>
@@ -55,7 +65,7 @@ export default function List() {
       </StyledList>
       { equipments &&
         equipments.map(eqp => (
-          <StyledList key={eqp.id}>
+          <StyledList key={eqp.id} onClick={() => onClickEqp(eqp)}>
             <li>{eqp.id}</li>
             <li>{eqp.type}</li>
             <li>{eqp.purchaseDate || '-'}</li>

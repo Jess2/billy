@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled, { css, keyframes } from 'styled-components';
-import Button from "./Button";
+import Button from "../atoms/Button";
 
 const fadeIn = keyframes`
   from {

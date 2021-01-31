@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import Button from "../component/Button";
-import Dialog from "../component/Dialog";
+import Button from "../atoms/Button";
+import Dialog from "./Dialog";
+import logoImage from '../../assets/images/billy-logo-2.png';
 
 export default function Header() {
   const [dialog, setDialog] = useState(false);
@@ -33,16 +34,34 @@ export default function Header() {
     background-color: #ffffff;
     border-bottom: 1px solid #e9ecef;
     
-    h5 {
-      color: #919191;
+    > div:first-child {
+      height: 100%;
+      
+      h5 {
+        height: 100%;
+        color: #919191;
+        
+        a {
+          display: flex;
+          align-items: center;
+          height: 100%;
+        
+          img {
+            height: 60%;
+          }
+        }
+      }
     }
+    
   `;
 
   return (
     <StyledHeader>
       <div>
         <h5>
-          <Link to="/">Billy</Link>
+          <Link to="/">
+            <img src={logoImage} alt='Logo Image' />
+          </Link>
         </h5>
       </div>
       <div>

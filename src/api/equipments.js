@@ -17,6 +17,18 @@ export function postEquipment(eqp) {
   });
 }
 
+export function getEquipment(id) {
+  return new Promise(result => {
+    setTimeout(() => {
+      const equipments = JSON.parse(localStorage.getItem('equipments'));
+      const selectedEqps = equipments.filter(eqp => {
+        return eqp.id == id;
+      });
+      result(selectedEqps[0]);
+    });
+  });
+}
+
 // [
 //   {
 //     id: 1,
