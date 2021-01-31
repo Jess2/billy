@@ -1,10 +1,10 @@
 import React, {useState, useContext} from 'react';
 import styled from "styled-components";
-import {EqpContext, SetEqpContext} from "../../../context/equipments";
-import PageHeader from "../../../components/molecules/PageHeader";
-import Button from "../../../components/atoms/Button";
+import {EqpContext, SetEqpContext} from "../context/equipments";
+import PageHeader from "../components/molecules/PageHeader";
+import Button from "../components/atoms/Button";
 import {Link, useHistory} from "react-router-dom";
-import {getEquipments, postEquipment} from "../../../api/equipments";
+import {getEquipments, postEquipment} from "../api/equipments";
 
 const StyledWrapper = styled.div`
   padding: 3vw 0;

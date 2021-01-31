@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import LoginForm from "../component/LoginForm";
-import logoImage from '../../../assets/images/billy-logo-2.png';
+import LoginForm from "../components/organisms/LoginForm";
+import logoImage from '../assets/images/billy-logo-2.png';
 
 export default function Login() {
   const StyledWrapper = styled.div`

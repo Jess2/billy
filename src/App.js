@@ -6,11 +6,11 @@ import {ThemeProvider} from "styled-components";
 import { EqpContext, SetEqpContext } from "./context/equipments";
 import { getEquipments } from './api/equipments';
 import Header from "./components/organisms/Header";
-import Login from "./pages/login/container/Login";
-import List from "./pages/list/container/List";
-import Detail from "./pages/detail/container/Detail";
-import Create from "./pages/create/container/Create";
-import Edit from "./pages/edit/container/Edit";
+import Login from "./pages/Login";
+import List from "./pages/List";
+import Detail from "./pages/Detail";
+import Create from "./pages/Create";
+import Edit from "./pages/Edit";
 
 const StyledBody = styled.div`
   max-width: 1200px;
