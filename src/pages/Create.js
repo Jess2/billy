@@ -4,7 +4,7 @@ import {EqpContext, SetEqpContext} from "../context/equipments";
 import PageHeader from "../components/molecules/PageHeader";
 import Button from "../components/atoms/Button";
 import {Link, useHistory} from "react-router-dom";
-import {getEquipments, postEquipment} from "../api/equipments";
+import {postEquipment} from "../api/equipments";
 
 const StyledWrapper = styled.div`
   padding: 3vw 0;

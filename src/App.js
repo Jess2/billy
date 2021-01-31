@@ -31,6 +31,7 @@ export default function App() {
           blue: '#228be6',
           gray: '#919191',
           pink: '#f06595',
+          red: '#ff0000',
         }
       }}
     >
@@ -41,7 +42,7 @@ export default function App() {
             <StyledBody>
               <Route path="/" exact component={Login}/>
               <Route path="/list" component={List}/>
-              <Route path="/detail" component={Detail}/>
+              <Route path="/detail/:id" component={Detail}/>
               <Route path="/create" component={Create}/>
               <Route path="/edit" component={Edit}/>
             </StyledBody>
