@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import LoginForm from "../component/LoginForm";
-import logoImage from '../../assets/images/billy-logo-2.png';
+import logoImage from '../../../assets/images/billy-logo-2.png';
 
 export default function Login() {
   const StyledWrapper = styled.div`
@@ -30,7 +30,7 @@ export default function Login() {
     <StyledWrapper>
       <StyledLogin>
         <StyledLogo>
-          <img src={logoImage} />
+          <img src={logoImage} alt='Logo Image' />
         </StyledLogo>
         <LoginForm></LoginForm>
       </StyledLogin>

@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import {Link} from "react-router-dom";
-import { EqpContext } from "../../common/context/equipments";
+import { EqpContext } from "../../../context/equipments";
 import styled from 'styled-components';
-import Button from "../../common/component/Button";
-import PageHeader from "../../common/component/PageHeader";
+import Button from "../../../components/atoms/Button";
+import PageHeader from "../../../components/molecules/PageHeader";
 
 const StyledWrapper = styled.div`
   padding: 3vw 0;

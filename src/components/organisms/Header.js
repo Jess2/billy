@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import Button from "../component/Button";
-import Dialog from "../component/Dialog";
+import Button from "../atoms/Button";
+import Dialog from "./Dialog";
 import logoImage from '../../assets/images/billy-logo-2.png';
 
 export default function Header() {
@@ -60,7 +60,7 @@ export default function Header() {
       <div>
         <h5>
           <Link to="/">
-            <img src={logoImage} />
+            <img src={logoImage} alt='Logo Image' />
           </Link>
         </h5>
       </div>

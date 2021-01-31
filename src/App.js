@@ -1,16 +1,16 @@
 import React, {useState, useEffect} from "react";
 import {Route} from "react-router-dom";
 import styled from "styled-components";
-import GlobalStyles from "./common/component/GlobalStyles";
+import GlobalStyles from "./components/atoms/GlobalStyles";
 import {ThemeProvider} from "styled-components";
-import { EqpContext, SetEqpContext } from "./common/context/equipments";
-import { getEquipments } from './common/api/equipments';
-import Header from "./common/container/Header";
-import Login from "./login/container/Login";
-import List from "./list/container/List";
-import Detail from "./detail/container/Detail";
-import Create from "./create/container/Create";
-import Edit from "./edit/container/Edit";
+import { EqpContext, SetEqpContext } from "./context/equipments";
+import { getEquipments } from './api/equipments';
+import Header from "./components/organisms/Header";
+import Login from "./pages/login/container/Login";
+import List from "./pages/list/container/List";
+import Detail from "./pages/detail/container/Detail";
+import Create from "./pages/create/container/Create";
+import Edit from "./pages/edit/container/Edit";
 
 const StyledBody = styled.div`
   max-width: 1200px;

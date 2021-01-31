@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Button from '../../common/component/Button';
+import Button from '../../../components/atoms/Button';
 import {Link} from "react-router-dom";
 
 const StyledForm = styled.form`
