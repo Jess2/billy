@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import LoginForm from "../component/LoginForm";
+import logoImage from '../../assets/images/billy-logo-2.png';
 
 export default function Login() {
   const StyledWrapper = styled.div`
@@ -19,13 +20,17 @@ export default function Login() {
   const StyledLogo = styled.h3`
       color: #919191;
       margin-bottom: 50px;
+      
+      img {
+        width: 60%;
+      }
   `;
 
   return (
     <StyledWrapper>
       <StyledLogin>
         <StyledLogo>
-          Billy
+          <img src={logoImage} />
         </StyledLogo>
         <LoginForm></LoginForm>
       </StyledLogin>
