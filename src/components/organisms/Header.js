@@ -60,7 +60,7 @@ export default function Header() {
       <div>
         <h5>
           <Link to="/">
-            <img src={logoImage} alt='Logo Image' />
+            <img src={logoImage} alt='Logo' />
           </Link>
         </h5>
       </div>

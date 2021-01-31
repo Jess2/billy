@@ -38,7 +38,7 @@ export default function Detail({ match }) {
     getEquipment(match.params.id).then(data => {
       setEqp(data)
     });
-  }, []);
+  }, [match]);
 
   return (
     <StyledWrapper>

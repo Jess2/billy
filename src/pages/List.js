@@ -13,9 +13,9 @@ const StyledList = styled.ul`
   width: 100%;
   padding: 1em 0;
   border-bottom: 1px solid #e9ecef;
-  cursor: pointer;
-    
-  &:hover {
+  
+  &:not(.list-header):hover {
+    cursor: pointer;
     background-color: #eeeeee;
   }
   
@@ -48,7 +48,7 @@ export default function List() {
           <Button size='small' color='blue' outline>+ Add</Button>
         </Link>
       </PageHeader>
-      <StyledList>
+      <StyledList className='list-header'>
         <li>No.</li>
         <li>분류</li>
         <li>구입년월</li>
