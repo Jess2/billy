@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.js": "/billy/static/js/main.08fda151.chunk.js",
-    "main.js.map": "/billy/static/js/main.08fda151.chunk.js.map",
+    "main.js": "/billy/static/js/main.bcc5bec4.chunk.js",
+    "main.js.map": "/billy/static/js/main.bcc5bec4.chunk.js.map",
     "runtime-main.js": "/billy/static/js/runtime-main.44bc6bba.js",
     "runtime-main.js.map": "/billy/static/js/runtime-main.44bc6bba.js.map",
-    "static/js/2.cc0f0e53.chunk.js": "/billy/static/js/2.cc0f0e53.chunk.js",
-    "static/js/2.cc0f0e53.chunk.js.map": "/billy/static/js/2.cc0f0e53.chunk.js.map",
+    "static/js/2.49a941ee.chunk.js": "/billy/static/js/2.49a941ee.chunk.js",
+    "static/js/2.49a941ee.chunk.js.map": "/billy/static/js/2.49a941ee.chunk.js.map",
     "index.html": "/billy/index.html",
-    "static/js/2.cc0f0e53.chunk.js.LICENSE.txt": "/billy/static/js/2.cc0f0e53.chunk.js.LICENSE.txt",
+    "static/js/2.49a941ee.chunk.js.LICENSE.txt": "/billy/static/js/2.49a941ee.chunk.js.LICENSE.txt",
     "static/media/billy-logo-2.de302629.png": "/billy/static/media/billy-logo-2.de302629.png"
   },
   "entrypoints": [
     "static/js/runtime-main.44bc6bba.js",
-    "static/js/2.cc0f0e53.chunk.js",
-    "static/js/main.08fda151.chunk.js"
+    "static/js/2.49a941ee.chunk.js",
+    "static/js/main.bcc5bec4.chunk.js"
   ]
 }
