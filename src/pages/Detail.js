@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import styled from "styled-components";
 import PageHeader from "../components/molecules/PageHeader";
 import Button from "../components/atoms/Button";
-import {getEquipment} from "../api/equipments";
+import {getEquipment, deleteEquipment} from "../api/equipments";
 
 const StyledWrapper = styled.div`
   padding: 3vw 0;
@@ -33,19 +33,26 @@ const StyledList = styled.ul`
 
 export default function Detail({ match }) {
   const [eqp, setEqp] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
     getEquipment(match.params.id).then(data => {
       setEqp(data)
     });
-  }, []);
+  }, [match]);
+
+  const onClickDelete = (eqpId) => {
+    deleteEquipment(eqpId).then(data => {
+      history.push(`/list`);
+    });
+  };
 
   return (
     <StyledWrapper>
       <PageHeader title='장비 상세'>
         <Link to="/create">
           <Button size='small' color='blue' outline>Edit</Button>
-          <Button size='small' color='red' outline>Delete</Button>
+          <Button size='small' color='red' outline onClick={() => onClickDelete(eqp.id)}>Delete</Button>
         </Link>
       </PageHeader>
       <StyledList>

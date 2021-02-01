@@ -30,7 +30,7 @@ export default function Login() {
     <StyledWrapper>
       <StyledLogin>
         <StyledLogo>
-          <img src={logoImage} alt='Logo Image' />
+          <img src={logoImage} alt='Logo' />
         </StyledLogo>
         <LoginForm></LoginForm>
       </StyledLogin>

@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
+import React, {useEffect, useState} from "react";
 import {Link, useHistory} from "react-router-dom";
-import { EqpContext } from "../context/equipments";
 import styled from 'styled-components';
 import Button from "../components/atoms/Button";
 import PageHeader from "../components/molecules/PageHeader";
+import {getEquipments} from "../api/equipments";
 
 const StyledWrapper = styled.div`
   padding: 3vw 0;
@@ -13,9 +13,9 @@ const StyledList = styled.ul`
   width: 100%;
   padding: 1em 0;
   border-bottom: 1px solid #e9ecef;
-  cursor: pointer;
-    
-  &:hover {
+  
+  &:not(.list-header):hover {
+    cursor: pointer;
     background-color: #eeeeee;
   }
   
@@ -34,8 +34,14 @@ const StyledList = styled.ul`
 `;
 
 export default function List() {
-  const equipments = useContext(EqpContext);
+  const [equipments, setEquipments] = useState([]);
   const history = useHistory();
+
+  useEffect(() => {
+    getEquipments().then(data => {
+      setEquipments(data);
+    });
+  }, []);
 
   const onClickEqp = (eqp) => {
     history.push(`/detail/${eqp.id}`);
@@ -48,7 +54,7 @@ export default function List() {
           <Button size='small' color='blue' outline>+ Add</Button>
         </Link>
       </PageHeader>
-      <StyledList>
+      <StyledList className='list-header'>
         <li>No.</li>
         <li>분류</li>
         <li>구입년월</li>
