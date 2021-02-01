@@ -92,7 +92,7 @@ const StyledButton = styled.button`
   ${fullWidthStyle}
 `;
 
-function Button({children, color, size, outline, fullWidth, ...rest}) {
+export default function Button({children, color, size, outline, fullWidth, ...rest}) {
   return (
     <StyledButton
       color={color}
@@ -110,5 +110,3 @@ Button.defaultProps = {
   color: 'gray',
   size: 'medium',
 };
-
-export default Button;

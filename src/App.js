@@ -44,7 +44,7 @@ export default function App() {
               <Route path="/list" component={List}/>
               <Route path="/detail/:id" component={Detail}/>
               <Route path="/create" component={Create}/>
-              <Route path="/edit" component={Edit}/>
+              <Route path="/edit/:id" component={Edit}/>
             </StyledBody>
             <GlobalStyles/>
           </EqpContext.Provider>

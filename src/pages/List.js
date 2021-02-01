@@ -70,9 +70,9 @@ export default function List() {
         <li>대여 상태</li>
       </StyledList>
       { equipments &&
-        equipments.map(eqp => (
+        equipments.map((eqp, index) => (
           <StyledList key={eqp.id} onClick={() => onClickEqp(eqp)}>
-            <li>{eqp.id}</li>
+            <li>{index + 1}</li>
             <li>{eqp.type}</li>
             <li>{eqp.purchaseDate || '-'}</li>
             <li>{eqp.regCode || '-'}</li>

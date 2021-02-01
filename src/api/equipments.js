@@ -12,8 +12,8 @@ export function postEquipment(eqp) {
   return new Promise(result => {
     setTimeout(() => {
       let equipments = JSON.parse(localStorage.getItem('equipments')) || [];
-      equipments = JSON.stringify([...equipments, eqp]);
-      localStorage.setItem('equipments', equipments);
+      equipments = [...equipments, eqp];
+      localStorage.setItem('equipments', JSON.stringify(equipments));
       result(eqp);
     }, 0);
   });
@@ -28,6 +28,22 @@ export function getEquipment(id) {
       });
       result(selectedEqps[0]);
     });
+  });
+}
+
+export function putEquipment(id, newEqp) {
+  return new Promise(result => {
+    setTimeout(() => {
+      let equipments = JSON.parse(localStorage.getItem('equipments'));
+      equipments = equipments.map(eqp => {
+        if (eqp.id === Number(id)) {
+          return newEqp;
+        }
+        return eqp;
+      });
+      localStorage.setItem('equipments', JSON.stringify(equipments))
+      result(newEqp);
+    })
   });
 }
 

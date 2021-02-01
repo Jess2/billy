@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Link, useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import styled from "styled-components";
 import PageHeader from "../components/molecules/PageHeader";
 import Button from "../components/atoms/Button";
@@ -37,9 +37,13 @@ export default function Detail({ match }) {
 
   useEffect(() => {
     getEquipment(match.params.id).then(data => {
-      setEqp(data)
+      setEqp(data);
     });
   }, [match]);
+
+  const onClickEdit = (eqpId) => {
+    history.push(`/edit/${eqp.id}`);
+  }
 
   const onClickDelete = (eqpId) => {
     deleteEquipment(eqpId).then(data => {
@@ -50,10 +54,8 @@ export default function Detail({ match }) {
   return (
     <StyledWrapper>
       <PageHeader title='장비 상세'>
-        <Link to="/create">
-          <Button size='small' color='blue' outline>Edit</Button>
-          <Button size='small' color='red' outline onClick={() => onClickDelete(eqp.id)}>Delete</Button>
-        </Link>
+        <Button size='small' color='blue' outline onClick={() => onClickEdit(eqp.id)}>Edit</Button>
+        <Button size='small' color='red' outline onClick={() => onClickDelete(eqp.id)}>Delete</Button>
       </PageHeader>
       <StyledList>
         <li>
