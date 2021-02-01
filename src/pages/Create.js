@@ -8,7 +8,7 @@ import {postEquipment} from "../api/equipments";
 import EqpInputForm from "../components/molecules/EqpInputForm";
 
 const StyledWrapper = styled.div`
-  padding: 3vw 0;
+  padding: 50px 0;
 `;
 
 export default function Create() {

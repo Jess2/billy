@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const StyledPageHeader = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 35px;
   
   h4 {
     display: flex;

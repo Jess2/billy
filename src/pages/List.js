@@ -6,7 +6,7 @@ import PageHeader from "../components/molecules/PageHeader";
 import {getEquipments} from "../api/equipments";
 
 const StyledWrapper = styled.div`
-  padding: 3vw 0;
+  padding: 50px 0;
 `;
 
 const StyledList = styled.ul`
