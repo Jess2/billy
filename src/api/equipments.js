@@ -47,7 +47,7 @@ export function deleteEquipment(id) {
 const sampleEquipments = [
   {
     id: 1,
-    type: 'Smart Phone',
+    type: 'Phone',
     purchaseDate: '2017-04-01', //구입년월
     createDT: '2018-03-27',
     UpdateDT: '2020-12-07',
@@ -69,5 +69,41 @@ const sampleEquipments = [
       createDT: "2020-02-26",
       updateDT: "2021-01-04",
     },
+  },
+  {
+    id: 2,
+    type: 'Laptop',
+    purchaseDate: '2019-12-13', //구입년월
+    createDT: '2019-12-13',
+    UpdateDT: '2020-01-30',
+    productCode: 'SW3AGHG7KF4H', // 제품번호
+    productName: 'Macbook Pro 13', // 제품명
+    modelName: 'C1905', // 모델명
+    manufacturer: 'APPLE', // 제조사
+    regCode: 'EWD-D323-503', // 관리 번호
+    specification: '스페이스그레이,512GB', // 규격/설명
+    description: '', // 추가 정보
+    relBusiness: '', // 관련 사업
+    isBilly: false, // 대여 상태
+    currentLocation: '', // 물품 위치
+    billyUser: null,
+  },
+  {
+    id: 3,
+    type: 'Tablet',
+    purchaseDate: '2021-01-01', //구입년월
+    createDT: '2021-01-22',
+    UpdateDT: '2021-02-01',
+    productCode: '3AGHGF4HSW7K', // 제품번호
+    productName: 'Galaxy Tab', // 제품명
+    modelName: 'B0001', // 모델명
+    manufacturer: 'Samsung', // 제조사
+    regCode: 'AAA-4323-011', // 관리 번호
+    specification: '화이트,128GB,LGU+', // 규격/설명
+    description: '', // 추가 정보
+    relBusiness: '', // 관련 사업
+    isBilly: false, // 대여 상태
+    currentLocation: '', // 물품 위치
+    billyUser: null,
   }
 ]
