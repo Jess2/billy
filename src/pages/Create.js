@@ -5,18 +5,32 @@ import PageHeader from "../components/molecules/PageHeader";
 import Button from "../components/atoms/Button";
 import {Link, useHistory} from "react-router-dom";
 import {postEquipment} from "../api/equipments";
+import EqpInputForm from "../components/molecules/EqpInputForm";
 
 const StyledWrapper = styled.div`
   padding: 3vw 0;
 `;
 
 export default function Create() {
-  const equipments = useContext(EqpContext);
-  const [newEqp, setNewEqp] = useState({});
   const history = useHistory();
+  const equipments = useContext(EqpContext);
+  const [eqp, setEqp] = useState({
+    type: '',
+    purchaseDate: '',
+    regCode: '',
+    manufacturer: '',
+    productName: '',
+    modelName: '',
+    productCode: '',
+    specification: '',
+    description: '',
+    currentLocation: '',
+    relBusiness: '',
+    isBilly: '',
+  });
 
-  function onChangeInput(e) {
-    setNewEqp({...newEqp, [e.target.name]: e.target.value})
+  function onChangeEqp(newEqp) {
+    setEqp(newEqp);
   }
 
   function findNextId() {
@@ -24,9 +38,9 @@ export default function Create() {
   }
 
   function onClickSave() {
-    newEqp.id = findNextId();
+    eqp.id = findNextId();
 
-    postEquipment(newEqp).then(data => {
+    postEquipment(eqp).then(data => {
       history.push('/list');
     });
   }
@@ -39,20 +53,7 @@ export default function Create() {
         </Link>
         <Button size='small' color='blue' outline onClick={onClickSave}>Save</Button>
       </PageHeader>
-      <div>
-        <input type='text' name='type' placeholder='분류' onChange={onChangeInput}/>
-        <input type='text' name='purchaseDate' placeholder='구입년월' onChange={onChangeInput}/>
-        <input type='text' name='regCode' placeholder='관리번호' onChange={onChangeInput} />
-        <input type='text' name='manufacturer' placeholder='제조사' onChange={onChangeInput} />
-        <input type='text' name='productName' placeholder='제품명' onChange={onChangeInput} />
-        <input type='text' name='modelName' placeholder='모델명' onChange={onChangeInput} />
-        <input type='text' name='productCode' placeholder='제품번호' onChange={onChangeInput} />
-        <input type='text' name='specification' placeholder='규격/설명' onChange={onChangeInput} />
-        <input type='text' name='description' placeholder='추가정보' onChange={onChangeInput} />
-        <input type='text' name='currentLocation' placeholder='물품위치' onChange={onChangeInput} />
-        <input type='text' name='relBusiness' placeholder='관련사업' onChange={onChangeInput} />
-        <input type='text' name='isBilly' placeholder='대여상태' onChange={onChangeInput} />
-      </div>
+      <EqpInputForm eqp={eqp} onChangeEqp={onChangeEqp} />
     </StyledWrapper>
   )
 }

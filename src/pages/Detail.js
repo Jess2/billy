@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Link, useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import styled from "styled-components";
 import PageHeader from "../components/molecules/PageHeader";
 import Button from "../components/atoms/Button";

@@ -1,15 +1,17 @@
-import React, {useState, useContext, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from "styled-components";
 import PageHeader from "../components/molecules/PageHeader";
 import Button from "../components/atoms/Button";
 import {Link, useHistory} from "react-router-dom";
 import {getEquipment, putEquipment} from "../api/equipments";
+import EqpInputForm from "../components/molecules/EqpInputForm";
 
 const StyledWrapper = styled.div`
   padding: 3vw 0;
 `;
 
 export default function Edit({ match }) {
+  const history = useHistory();
   const [eqp, setEqp] = useState({
     type: '',
     purchaseDate: '',
@@ -24,20 +26,20 @@ export default function Edit({ match }) {
     relBusiness: '',
     isBilly: '',
   });
-  const history = useHistory();
 
   useEffect(() => {
-    getEquipment(match.params.id).then(data => {
-      setEqp(data);
+    console.log('id 변경')
+    getEquipment(match.params.id).then(_eqp => {
+      setEqp(_eqp);
     });
-  }, [match]);
+  }, [match.params.id]);
 
-  function onChangeInput(e) {
-    setEqp({...eqp, [e.target.name]: e.target.value})
+  function onChangeEqp(newEqp) {
+    setEqp(newEqp);
   }
 
   function onClickSave() {
-    putEquipment(match.params.id, eqp).then(data => {
+    putEquipment(match.params.id, eqp).then(_eqp => {
       history.push('/list');
     });
   }
@@ -50,20 +52,7 @@ export default function Edit({ match }) {
         </Link>
         <Button size='small' color='blue' outline onClick={onClickSave}>Save</Button>
       </PageHeader>
-      <div>
-        <input type='text' name='type' placeholder='분류' value={eqp.type} onChange={onChangeInput}/>
-        <input type='text' name='purchaseDate' placeholder='구입년월' value={eqp.purchaseDate} onChange={onChangeInput}/>
-        <input type='text' name='regCode' placeholder='관리번호' value={eqp.regCode} onChange={onChangeInput} />
-        <input type='text' name='manufacturer' placeholder='제조사' value={eqp.manufacturer} onChange={onChangeInput} />
-        <input type='text' name='productName' placeholder='제품명' value={eqp.productName} onChange={onChangeInput} />
-        <input type='text' name='modelName' placeholder='모델명' value={eqp.modelName} onChange={onChangeInput} />
-        <input type='text' name='productCode' placeholder='제품번호' value={eqp.productCode} onChange={onChangeInput} />
-        <input type='text' name='specification' placeholder='규격/설명' value={eqp.specification} onChange={onChangeInput} />
-        <input type='text' name='description' placeholder='추가정보' value={eqp.description} onChange={onChangeInput} />
-        <input type='text' name='currentLocation' placeholder='물품위치' value={eqp.currentLocation} onChange={onChangeInput} />
-        <input type='text' name='relBusiness' placeholder='관련사업' value={eqp.relBusiness} onChange={onChangeInput} />
-        <input type='text' name='isBilly' placeholder='대여상태' value={eqp.isBilly} onChange={onChangeInput} />
-      </div>
+      <EqpInputForm eqp={eqp} onChangeEqp={onChangeEqp} />
     </StyledWrapper>
   )
 }
