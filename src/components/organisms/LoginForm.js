@@ -27,9 +27,9 @@ export default function LoginForm() {
   return <>
     <StyledForm>
       <label htmlFor="user-id" />
-      <input id="user-id" type="text" placeholder="Email ID"/>
+      <input id="user-id" type="text" value='syjung@maxst.com' readOnly placeholder="Email ID"/>
       <label htmlFor="user-pw" />
-      <input id="user-pw" type="text" placeholder="Password"/>
+      <input id="user-pw" type="password" value='maxst12!@' readOnly placeholder="Password"/>
       <Link to="/list">
         <Button type="submit">
           SIGN IN

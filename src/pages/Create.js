@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react';
 import styled from "styled-components";
-import {EqpContext, SetEqpContext} from "../context/equipments";
+import {EqpContext} from "../context/equipments";
 import PageHeader from "../components/molecules/PageHeader";
 import Button from "../components/atoms/Button";
 import {Link, useHistory} from "react-router-dom";
@@ -11,7 +11,6 @@ const StyledWrapper = styled.div`
 `;
 
 export default function Create() {
-  const setEquipments = useContext(SetEqpContext);
   const equipments = useContext(EqpContext);
   const [newEqp, setNewEqp] = useState({});
   const history = useHistory();
@@ -26,10 +25,10 @@ export default function Create() {
 
   function onClickSave() {
     newEqp.id = findNextId();
+
     postEquipment(newEqp).then(data => {
-      setEquipments([...equipments, newEqp]);
+      history.push('/list');
     });
-    history.push('/list');
   }
 
   return (
