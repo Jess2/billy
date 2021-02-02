@@ -38,9 +38,4 @@ function PageHeader({children, title}) {
   );
 }
 
-PageHeader.defaultProps = {
-  color: 'blue',
-  size: 'medium',
-};
-
 export default PageHeader;

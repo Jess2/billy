@@ -3,7 +3,7 @@ import {Route} from "react-router-dom";
 import styled from "styled-components";
 import GlobalStyles from "./components/atoms/GlobalStyles";
 import {ThemeProvider} from "styled-components";
-import { EqpContext, SetEqpContext } from "./context/equipments";
+import { EqpContext } from "./context/equipments";
 import { getEquipments } from './api/equipments';
 import Header from "./components/organisms/Header";
 import Login from "./pages/Login";
@@ -36,19 +36,17 @@ export default function App() {
       }}
     >
       <>
-        <SetEqpContext.Provider value={setEquipments}>
-          <EqpContext.Provider value={equipments}>
-            <Header/>
-            <StyledBody>
-              <Route path="/" exact component={Login}/>
-              <Route path="/list" component={List}/>
-              <Route path="/detail/:id" component={Detail}/>
-              <Route path="/create" component={Create}/>
-              <Route path="/edit/:id" component={Edit}/>
-            </StyledBody>
-            <GlobalStyles/>
-          </EqpContext.Provider>
-        </SetEqpContext.Provider>
+        <EqpContext.Provider value={equipments}>
+          <Header/>
+          <StyledBody>
+            <Route path="/" exact component={Login}/>
+            <Route path="/list" component={List}/>
+            <Route path="/detail/:id" component={Detail}/>
+            <Route path="/create" component={Create}/>
+            <Route path="/edit/:id" component={Edit}/>
+          </StyledBody>
+          <GlobalStyles/>
+        </EqpContext.Provider>
       </>
     </ThemeProvider>
   );
