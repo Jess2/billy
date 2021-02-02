@@ -5,14 +5,33 @@ import PageHeader from "../components/molecules/PageHeader";
 import Button from "../components/atoms/Button";
 import ListRow from "../components/molecules/ListRow";
 import {getEquipment, deleteEquipment} from "../api/equipments";
+import Dialog from "../components/organisms/Dialog";
 
 const StyledWrapper = styled.div`
   padding: 50px 0;
 `;
 
 export default function Detail({ match }) {
-  const [eqp, setEqp] = useState([]);
   const history = useHistory();
+  const [eqp, setEqp] = useState([]);
+  const [dialog, setDialog] = useState(false);
+  const [selectedEqpId, setSelectedEqpId] = useState(null);
+
+  const onClickDelete = (eqpId) => {
+    setSelectedEqpId(eqpId);
+    setDialog(true);
+  };
+
+  const onConfirmDelete = () => {
+    deleteEquipment(selectedEqpId).then(data => {
+      setDialog(false);
+      history.push(`/list`);
+    });
+  };
+
+  const onCancelDelete = () => {
+    setDialog(false);
+  };
 
   useEffect(() => {
     getEquipment(match.params.id).then(data => {
@@ -20,15 +39,13 @@ export default function Detail({ match }) {
     });
   }, [match]);
 
+  useEffect(() => {
+    return () => setDialog(false); // cleanup function을 이용
+  }, []);
+
   const onClickEdit = (eqpId) => {
     history.push(`/edit/${eqp.id}`);
   }
-
-  const onClickDelete = (eqpId) => {
-    deleteEquipment(eqpId).then(data => {
-      history.push(`/list`);
-    });
-  };
 
   return (
     <StyledWrapper>
@@ -37,6 +54,14 @@ export default function Detail({ match }) {
         <Button size='small' color='red' outline onClick={() => onClickDelete(eqp.id)}>Delete</Button>
       </PageHeader>
       <ListRow eqp={eqp} />
+      <Dialog
+        title="장비 삭제"
+        contents="정말로 삭제하시겠습니까?"
+        onConfirm={onConfirmDelete}
+        onCancel={onCancelDelete}
+        isVisible={dialog}
+      >
+      </Dialog>
     </StyledWrapper>
   );
 }
