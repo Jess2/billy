@@ -1,0 +1,15 @@
+{
+  "id": "Id",
+  "type": "분류",
+  "purchaseDate": "구입년월",
+  "regCode": "관리번호",
+  "manufacturer": "제조사",
+  "productName": "제품명",
+  "modelName": "모델명",
+  "productCode": "제품번호",
+  "specification": "규격/설명",
+  "description": "추가정보",
+  "currentLocation": "물품위치",
+  "relBusiness": "관련사업",
+  "isBilly": "대여상태"
+}
