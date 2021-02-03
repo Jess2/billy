@@ -44,7 +44,11 @@ export default function TableRow({ isLabel, eqp, openEqpDetail }) {
         : <StyledList onClick={() => onClickEqp(eqp)}>
             {
               Object.keys(eqpPropLabels).map((key) => (
-                <li key={key}>{eqp[key] || '-'}</li>
+                <li key={key}>
+                  { key === 'isBilly'
+                    ? (eqp[key] ? '대여 중' : '대여 가능')
+                    : eqp[key] || '-' }
+                </li>
               ))
             }
           </StyledList>
