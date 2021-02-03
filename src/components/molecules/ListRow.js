@@ -31,7 +31,11 @@ export default function ListRow({ eqp }) {
         Object.keys(eqpPropLabels).map((key) => (
           <li key={key}>
             <span>{eqpPropLabels[key]}</span>
-            <span>{eqp[key] || '-'}</span>
+            <span>
+              { key === 'isBilly'
+                ? (eqp[key] ? '대여 중' : '대여 가능')
+                : eqp[key] || '-' }
+            </span>
           </li>
         ))
       }
