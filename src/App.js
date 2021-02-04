@@ -30,6 +30,7 @@ export default function App() {
         palette: {
           blue: '#228be6',
           gray: '#919191',
+          darkgray: '#737373',
           black: '#1f1f1f',
           pink: '#f06595',
           red: '#ff0000',

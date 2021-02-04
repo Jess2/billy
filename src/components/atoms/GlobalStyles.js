@@ -49,7 +49,7 @@ const globalStyles = createGlobalStyle`
     background-color: yellow;
   }
   *:focus {
-    outline: ${({ theme }) => theme.palette['black']} auto 1px;
+    outline: ${({ theme }) => theme.palette['darkgray']} auto 1px;
   }
   a, button {
     &:focus {
