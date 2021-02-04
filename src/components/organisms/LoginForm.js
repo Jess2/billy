@@ -35,6 +35,7 @@ export default function LoginForm() {
   const history = useHistory();
   const [user, setUser] = useState({email: 'user1@test.com', password: 'billy12!@'});
   const [errorText, setErrorText] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const emailRef = useRef();
   const passwordRef = useRef();
 
@@ -52,7 +53,9 @@ export default function LoginForm() {
     } else if (!validateEmail(user.email)) {
       setErrorText('아이디는 이메일 형식이어야 합니다.');
     } else {
+      setIsLoading(true);
       postLogin(user.email, user.password).then(data => {
+        setIsLoading(false);
         if (data) {
           history.push(`/list`);
         } else {
@@ -101,7 +104,7 @@ export default function LoginForm() {
         onKeyPress={onKeyPress}
       />
       {errorText && <ErrorText className='error-text'>{errorText}</ErrorText>}
-      <Button onClick={onClickSignIn}>
+      <Button loading={isLoading} onClick={onClickSignIn}>
         SIGN IN
       </Button>
     </StyledForm>
