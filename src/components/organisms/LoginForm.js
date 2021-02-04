@@ -5,6 +5,7 @@ import Button from '../atoms/Button';
 import {postLogin} from "../../api/users";
 import Input from "../atoms/Input";
 import ErrorText from "../atoms/ErrorText";
+import validateEmail from "../../plugins/validateEmail";
 
 const StyledForm = styled.div`
   width: 100%;
@@ -29,20 +30,30 @@ const StyledForm = styled.div`
 export default function LoginForm() {
   const history = useHistory();
   const [user, setUser] = useState({email: 'user1@test.com', password: 'billy12!@'});
-  const [errorText ,setErrorText] = useState('');
+  const [errorText, setErrorText] = useState('');
 
   const onClickSignIn = () => {
-    postLogin(user.email, user.password).then(data => {
-      if (data) {
-        history.push(`/list`);
-      } else {
-        setErrorText('아이디 또는 비밀번호를 확인해 주세요.');
-      }
-    });
+    if (!user.email && !user.password) {
+      setErrorText('아이디 및 비밀번호를 입력하세요.');
+    } else if (!user.email) {
+      setErrorText('아이디를 입력하세요.');
+    } else if (!user.password) {
+      setErrorText('비밀번호를 입력하세요.');
+    } else if (!validateEmail(user.email)) {
+      setErrorText('아이디는 이메일 형식이어야 합니다.');
+    } else {
+      postLogin(user.email, user.password).then(data => {
+        if (data) {
+          history.push(`/list`);
+        } else {
+          setErrorText('아이디 또는 비밀번호를 확인해 주세요.');
+        }
+      });
+    }
   }
 
   const onChangeInput = (e) => {
-    setUser({...user, [e.target.name]: e.target.value})
+    setUser({...user, [e.target.name]: e.target.value});
   }
 
   return <>
