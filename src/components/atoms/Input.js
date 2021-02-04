@@ -49,11 +49,12 @@ const StyledInput = styled.input`
   ${fullWidthStyle}
 `;
 
-export default function Input({children, size, fullWidth, ...rest}) {
+export default function Input({children, size, fullWidth, inputRef, ...rest}) {
   return (
     <StyledInput
       size={size}
       fullWidth={fullWidth}
+      ref={inputRef}
       {...rest}
     >
       {children}
