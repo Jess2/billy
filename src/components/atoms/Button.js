@@ -7,11 +7,9 @@ const colorStyles = css`
     const COLOR = theme.palette[color];
     return css`
       background: ${COLOR};
-      &:hover {
-        background: ${lighten(0.1, COLOR)};
-      }
+      &:hover,
       &:focus {
-        background: ${darken(0.1, COLOR)};
+        background: ${lighten(0.2, COLOR)};
       }
       ${props =>
         props.outline &&
@@ -70,7 +68,7 @@ const StyledButton = styled.button`
   display: inline-block;
   outline: none;
   border: none;
-  border-radius: 4px;
+  border-radius: 3px;
   color: white;
   font-weight: bold;
   cursor: pointer;
@@ -107,6 +105,6 @@ export default function Button({children, color, size, outline, fullWidth, ...re
 }
 
 Button.defaultProps = {
-  color: 'gray',
+  color: 'black',
   size: 'medium',
 };

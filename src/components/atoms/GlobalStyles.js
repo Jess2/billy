@@ -48,6 +48,9 @@ const globalStyles = createGlobalStyle`
   .btn--basic {
     background-color: yellow;
   }
+  *:focus {
+    outline: ${({ theme }) => theme.palette['black']} auto 1px;
+  }
   a, button {
     &:focus {
       outline: none;
