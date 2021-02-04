@@ -24,7 +24,7 @@ const StyledList = styled.ul`
   }
 `;
 
-export default function ListRow({ eqp }) {
+export default function ListRow({eqp}) {
   return (
     <StyledList>
       {
@@ -32,9 +32,9 @@ export default function ListRow({ eqp }) {
           <li key={key}>
             <span>{eqpPropLabels[key]}</span>
             <span>
-              { key === 'isBilly'
+              {key === 'isBilly'
                 ? (eqp[key] ? '대여 중' : '대여 가능')
-                : eqp[key] || '-' }
+                : eqp[key] || '-'}
             </span>
           </li>
         ))

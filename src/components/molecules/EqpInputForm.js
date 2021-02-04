@@ -2,7 +2,7 @@ import React from 'react';
 import Input from '../atoms/Input';
 
 export default function EqpInputForm({ eqp, onChangeEqp }) {
-  function onChangeInput(e) {
+  const onChangeInput = (e) => {
     onChangeEqp({...eqp, [e.target.name]: e.target.value})
   }
 
