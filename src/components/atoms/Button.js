@@ -35,7 +35,7 @@ const sizes = {
     fontSize: '1.25rem'
   },
   medium: {
-    height: '2.25rem',
+    height: '2.5rem',
     fontSize: '1rem'
   },
   small: {

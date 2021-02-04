@@ -20,10 +20,14 @@ const StyledForm = styled.div`
   }
   
   button {
-    margin-top: 30px;
+    margin-top: 50px;
     min-width: 50%;
     text-align: center;
     max-width: 100%;
+  }
+  
+  .error-text {
+    position: absolute;
   }
 `;
 
@@ -62,7 +66,7 @@ export default function LoginForm() {
       <Input id="user-id" type="text" name="email" placeholder="Email ID" value={user.email} onChange={onChangeInput}/>
       <label htmlFor="user-pw" />
       <Input id="user-pw" type="password" name="password" placeholder="Password" value={user.password} onChange={onChangeInput}/>
-      <ErrorText>{errorText}</ErrorText>
+      { errorText && <ErrorText className='error-text'>{errorText}</ErrorText> }
       <Button onClick={onClickSignIn}>
         SIGN IN
       </Button>
