@@ -29,15 +29,15 @@ export default function Create() {
     isBilly: '',
   });
 
-  function onChangeEqp(newEqp) {
+  const onChangeEqp = (newEqp) => {
     setEqp(newEqp);
   }
 
-  function findNextId() {
+  const findNextId = () => {
     return equipments.length > 0 ? equipments[equipments.length - 1].id + 1 : 1;
   }
 
-  function onClickSave() {
+  const onClickSave = () => {
     eqp.id = findNextId();
 
     postEquipment(eqp).then(data => {

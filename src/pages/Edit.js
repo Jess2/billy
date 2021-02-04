@@ -34,11 +34,11 @@ export default function Edit({ match }) {
     });
   }, [match.params.id]);
 
-  function onChangeEqp(newEqp) {
+  const onChangeEqp = (newEqp) => {
     setEqp(newEqp);
   }
 
-  function onClickSave() {
+  const onClickSave = () => {
     putEquipment(match.params.id, eqp).then(_eqp => {
       history.push('/list');
     });

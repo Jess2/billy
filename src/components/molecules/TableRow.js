@@ -26,8 +26,8 @@ const StyledList = styled.ul`
   }
 `;
 
-export default function TableRow({ isLabel, eqp, openEqpDetail }) {
-  function onClickEqp(eqp) {
+export default function TableRow({isLabel, eqp, openEqpDetail}) {
+  const onClickEqp = (eqp) => {
     openEqpDetail(eqp);
   }
 
@@ -35,23 +35,23 @@ export default function TableRow({ isLabel, eqp, openEqpDetail }) {
     <>
       {isLabel
         ? <StyledList className='list-header'>
-            {
-              Object.keys(eqpPropLabels).map((key) => (
-                <li key={key}>{eqpPropLabels[key]}</li>
-              ))
-            }
-          </StyledList>
+          {
+            Object.keys(eqpPropLabels).map((key) => (
+              <li key={key}>{eqpPropLabels[key]}</li>
+            ))
+          }
+        </StyledList>
         : <StyledList onClick={() => onClickEqp(eqp)}>
-            {
-              Object.keys(eqpPropLabels).map((key) => (
-                <li key={key}>
-                  { key === 'isBilly'
-                    ? (eqp[key] ? '대여 중' : '대여 가능')
-                    : eqp[key] || '-' }
-                </li>
-              ))
-            }
-          </StyledList>
+          {
+            Object.keys(eqpPropLabels).map((key) => (
+              <li key={key}>
+                {key === 'isBilly'
+                  ? (eqp[key] ? '대여 중' : '대여 가능')
+                  : eqp[key] || '-'}
+              </li>
+            ))
+          }
+        </StyledList>
       }
     </>
   );

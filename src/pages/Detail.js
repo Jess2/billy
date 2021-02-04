@@ -31,7 +31,6 @@ export default function Detail({ match }) {
 
   const onClickBorrowReturn = (eqpId) => {
     putEquipment(eqpId, {...eqp, isBilly: !eqp.isBilly}).then(data => {
-      console.log(data)
       setEqp(data);
     });
   }
@@ -50,7 +49,7 @@ export default function Detail({ match }) {
     return () => setDialog(false); // cleanup function을 이용
   }, []);
 
-  const onClickEdit = (eqpId) => {
+  const onClickEdit = () => {
     history.push(`/edit/${eqp.id}`);
   }
 
