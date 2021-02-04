@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Button from '../atoms/Button';
 import {postLogin} from "../../api/users";
 import Input from "../atoms/Input";
+import ErrorText from "../atoms/ErrorText";
 
 const StyledForm = styled.div`
   width: 100%;
@@ -14,7 +15,7 @@ const StyledForm = styled.div`
   border-radius: 10px;
   
   input {
-    margin: 10px 0;
+    margin: 5px 0;
   }
   
   button {
@@ -47,10 +48,10 @@ export default function LoginForm() {
   return <>
     <StyledForm>
       <label htmlFor="user-id" />
-      <input id="user-id" type="text" name="email" placeholder="Email ID" value={user.email} onChange={onChangeInput}/>
+      <Input id="user-id" type="text" name="email" placeholder="Email ID" value={user.email} onChange={onChangeInput}/>
       <label htmlFor="user-pw" />
-      <input id="user-pw" type="password" name="password" placeholder="Password" value={user.password} onChange={onChangeInput}/>
-      <p>{errorText}</p>
+      <Input id="user-pw" type="password" name="password" placeholder="Password" value={user.password} onChange={onChangeInput}/>
+      <ErrorText>{errorText}</ErrorText>
       <Button onClick={onClickSignIn}>
         SIGN IN
       </Button>

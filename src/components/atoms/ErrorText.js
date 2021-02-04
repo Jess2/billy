@@ -32,35 +32,30 @@ const fullWidthStyle = css`
   `}
 `;
 
-const StyledInput = styled.input`
+const StyledErrorText = styled.p`
   /* 공통 스타일 */
-  display: inline-block;
-  border-radius: 4px;
-  padding: 1.2em 1em;
+  padding: 0.5em 0.2em;
+  text-align: left;
+  color: ${({ theme }) => theme.palette['red']};
   
   /* 크기 */
   ${sizeStyles}
   
-  /* 기타 */
-  & + & {
-    margin-top: 1em;
-  }
-  
   ${fullWidthStyle}
 `;
 
-export default function Input({children, size, fullWidth, ...rest}) {
+export default function ErrorText({children, size, fullWidth, ...rest}) {
   return (
-    <StyledInput
+    <StyledErrorText
       size={size}
       fullWidth={fullWidth}
       {...rest}
     >
       {children}
-    </StyledInput>
+    </StyledErrorText>
   );
 }
 
-Input.defaultProps = {
-  size: 'medium',
+ErrorText.defaultProps = {
+  size: 'small',
 };

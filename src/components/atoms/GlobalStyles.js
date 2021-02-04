@@ -6,9 +6,11 @@ const globalStyles = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
+  html {
+    font-size: 14px;
+  }
   body{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 14px;
     width: 100%;
     min-width: 1280px;
   }
