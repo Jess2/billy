@@ -36,25 +36,25 @@ const StyledInput = styled.input`
   /* 공통 스타일 */
   display: inline-block;
   border-radius: 4px;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding: 1.2em 1em;
   
   /* 크기 */
   ${sizeStyles}
   
   /* 기타 */
   & + & {
-    margin-top: 1rem;
+    margin-top: 1em;
   }
   
   ${fullWidthStyle}
 `;
 
-export default function Input({children, size, fullWidth, ...rest}) {
+export default function Input({children, size, fullWidth, inputRef, ...rest}) {
   return (
     <StyledInput
       size={size}
       fullWidth={fullWidth}
+      ref={inputRef}
       {...rest}
     >
       {children}

@@ -7,11 +7,9 @@ const colorStyles = css`
     const COLOR = theme.palette[color];
     return css`
       background: ${COLOR};
-      &:hover {
-        background: ${lighten(0.1, COLOR)};
-      }
-      &:focus {
-        background: ${darken(0.1, COLOR)};
+      &:not(:disabled):hover,
+      &:not(:disabled):focus {
+        background: ${lighten(0.2, COLOR)};
       }
       ${props =>
         props.outline &&
@@ -37,7 +35,7 @@ const sizes = {
     fontSize: '1.25rem'
   },
   medium: {
-    height: '2.25rem',
+    height: '2.5rem',
     fontSize: '1rem'
   },
   small: {
@@ -65,12 +63,21 @@ const fullWidthStyle = css`
     `}
 `;
 
+const disabledStyle = css`
+  ${props =>
+    props.loading &&
+    css`
+      cursor: default;
+      opacity: 0.5;
+    `}
+`;
+
 const StyledButton = styled.button`
   /* 공통 스타일 */
   display: inline-block;
   outline: none;
   border: none;
-  border-radius: 4px;
+  border-radius: 3px;
   color: white;
   font-weight: bold;
   cursor: pointer;
@@ -89,24 +96,31 @@ const StyledButton = styled.button`
     margin-left: 1rem;
   }
   
+  &:disabled {
+    ${disabledStyle}
+  }
+  
   ${fullWidthStyle}
 `;
 
-export default function Button({children, color, size, outline, fullWidth, ...rest}) {
+export default function Button({children, color, size, outline, fullWidth, loading, ...rest}) {
   return (
     <StyledButton
       color={color}
       size={size}
       outline={outline}
       fullWidth={fullWidth}
+      loading={loading}
+      disabled={loading}
       {...rest}
     >
-      {children}
+      {loading ? 'LOADING...' : children}
     </StyledButton>
   );
 }
 
 Button.defaultProps = {
-  color: 'gray',
+  color: 'black',
   size: 'medium',
+  loading: false,
 };

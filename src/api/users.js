@@ -8,6 +8,6 @@ export function postLogin(email, pw) {
       });
 
       result(loginUser);
-    }, 0);
+    }, 1000);
   });
 }
