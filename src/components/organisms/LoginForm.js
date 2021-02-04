@@ -27,7 +27,7 @@ const StyledForm = styled.div`
 
 export default function LoginForm() {
   const history = useHistory();
-  const [user, setUser] = useState({email: '', password: ''});
+  const [user, setUser] = useState({email: 'user1@test.com', password: 'billy12!@'});
   const [errorText ,setErrorText] = useState('');
 
   const onClickSignIn = () => {
