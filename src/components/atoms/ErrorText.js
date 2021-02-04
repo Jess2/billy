@@ -1,47 +1,18 @@
 import React from 'react';
-import styled, {css} from 'styled-components';
-
-const sizes = {
-  large: {
-    height: '3rem',
-    fontSize: '1.25rem'
-  },
-  medium: {
-    height: '2.25rem',
-    fontSize: '1rem'
-  },
-  small: {
-    height: '1.75rem',
-    fontSize: '0.875rem'
-  }
-};
-
-const sizeStyles = css`
-  ${({size}) => css`
-    height: ${sizes[size].height};
-    font-size: ${sizes[size].fontSize};
-  `}
-`;
-
-const fullWidthStyle = css`
-  ${props =>
-  props.fullWidth &&
-  css`
-      width: 100%;
-      justify-content: center;
-  `}
-`;
+import styled from 'styled-components';
+import { IoWarningSharp } from 'react-icons/io5';
 
 const StyledErrorText = styled.p`
-  /* 공통 스타일 */
+  display: flex;
+  align-items: center;
   padding: 0.5em 0.2em;
   text-align: left;
+  font-size: 0.875rem;
   color: ${({ theme }) => theme.palette['red']};
   
-  /* 크기 */
-  ${sizeStyles}
-  
-  ${fullWidthStyle}
+  span {
+    padding-left: 0.3em;
+  }
 `;
 
 export default function ErrorText({children, size, fullWidth, ...rest}) {
@@ -51,11 +22,8 @@ export default function ErrorText({children, size, fullWidth, ...rest}) {
       fullWidth={fullWidth}
       {...rest}
     >
-      {children}
+      <IoWarningSharp />
+      <span>{children}</span>
     </StyledErrorText>
   );
 }
-
-ErrorText.defaultProps = {
-  size: 'small',
-};
