@@ -3,7 +3,7 @@ import {useHistory} from 'react-router-dom';
 import styled from "styled-components";
 import PageHeader from "../components/molecules/PageHeader";
 import Button from "../components/atoms/Button";
-import ListRow from "../components/molecules/ListRow";
+import EqpListRow from "../components/molecules/EqpListRow";
 import {getEquipment, deleteEquipment, putEquipment} from "../api/equipments";
 import Modal from "../components/organisms/Modal";
 import {MyInfoContext} from "../context/myInfo";
@@ -19,7 +19,6 @@ export default function Detail({ match }) {
   const [deleteModal, setDeleteModal] = useState(false);
   const [selectedEqpId, setSelectedEqpId] = useState(null);
   const myInfo = useContext(MyInfoContext);
-console.log(myInfo)
   const onClickEdit = () => {
     history.push(`/edit/${eqp.id}`);
   }
@@ -45,7 +44,14 @@ console.log(myInfo)
   }
 
   const onConfirmBorrow = () => {
-    putEquipment(eqp.id, {...eqp, isBilly: !eqp.isBilly, billyUser: eqp.isBilly? {} : myInfo}).then(data => {
+    const newEqp = {
+      ...eqp,
+      isBilly: !eqp.isBilly,
+      billyDate: eqp.isBilly ? null : new Date().toString(),
+      billyUser: eqp.isBilly ? null : myInfo
+    };
+
+    putEquipment(eqp.id, newEqp).then(data => {
       setEqp(data);
       setBorrowModal(false);
     });
@@ -83,7 +89,8 @@ console.log(myInfo)
         <Button size='small' color='blue' outline onClick={onClickEdit}>Edit</Button>
         <Button size='small' color='red' outline onClick={onClickDelete}>Delete</Button>
       </PageHeader>
-      <ListRow eqp={eqp} />
+      <EqpListRow eqp={eqp} />
+
       <Modal
         title="장비 삭제"
         contents="정말로 삭제하시겠습니까?"
