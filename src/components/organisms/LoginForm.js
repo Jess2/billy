@@ -60,6 +60,7 @@ export default function LoginForm() {
         setIsLoading(false);
         if (data) {
           setMyInfo(data);
+          localStorage.removeItem('equipments');
           history.push(`/list`);
         } else {
           setErrorText('아이디 또는 비밀번호를 확인해 주세요.');
