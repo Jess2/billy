@@ -1,11 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import styled from "styled-components";
 import PageHeader from "../components/molecules/PageHeader";
 import Button from "../components/atoms/Button";
-import ListRow from "../components/molecules/ListRow";
+import EqpListRow from "../components/molecules/EqpListRow";
 import {getEquipment, deleteEquipment, putEquipment} from "../api/equipments";
-import Dialog from "../components/organisms/Dialog";
+import Modal from "../components/organisms/Modal";
+import {MyInfoContext} from "../context/myInfo";
 
 const StyledWrapper = styled.div`
   padding: 50px 0;
@@ -14,63 +15,96 @@ const StyledWrapper = styled.div`
 export default function Detail({ match }) {
   const history = useHistory();
   const [eqp, setEqp] = useState([]);
-  const [dialog, setDialog] = useState(false);
+  const [borrowModal, setBorrowModal] = useState(false);
+  const [deleteModal, setDeleteModal] = useState(false);
   const [selectedEqpId, setSelectedEqpId] = useState(null);
+  const myInfo = useContext(MyInfoContext);
+  const onClickEdit = () => {
+    history.push(`/edit/${eqp.id}`);
+  }
 
-  const onClickDelete = (eqpId) => {
-    setSelectedEqpId(eqpId);
-    setDialog(true);
+  const onClickDelete = () => {
+    setSelectedEqpId(eqp.id);
+    setDeleteModal(true);
   };
 
   const onConfirmDelete = () => {
     deleteEquipment(selectedEqpId).then(data => {
-      setDialog(false);
+      setDeleteModal(false);
       history.push(`/list`);
     });
   };
 
-  const onClickBorrowReturn = (eqpId) => {
-    putEquipment(eqpId, {...eqp, isBilly: !eqp.isBilly}).then(data => {
+  const onCancelDelete = () => {
+    setDeleteModal(false);
+  };
+
+  const onClickBorrow = () => {
+    setBorrowModal(true);
+  }
+
+  const onConfirmBorrow = () => {
+    const newEqp = {
+      ...eqp,
+      isBilly: !eqp.isBilly,
+      billyDate: eqp.isBilly ? null : new Date().toString(),
+      billyUser: eqp.isBilly ? null : myInfo
+    };
+
+    putEquipment(eqp.id, newEqp).then(data => {
       setEqp(data);
+      setBorrowModal(false);
     });
   }
 
-  const onCancelDelete = () => {
-    setDialog(false);
-  };
+  const onCancelBorrow = () => {
+    setBorrowModal(false);
+  }
 
   useEffect(() => {
     getEquipment(match.params.id).then(data => {
       setEqp(data);
     });
-  }, [match, eqp]);
+  }, [match]);
 
   useEffect(() => {
-    return () => setDialog(false); // cleanup function을 이용
+    return () => setDeleteModal(false); // cleanup function을 이용
   }, []);
-
-  const onClickEdit = () => {
-    history.push(`/edit/${eqp.id}`);
-  }
 
   return (
     <StyledWrapper>
       <PageHeader title='장비 상세'>
-        <Button size='small' color='blue' outline onClick={() => onClickBorrowReturn(eqp.id)}>
-          { eqp.isBilly ? 'Return' : 'Borrow' }
-        </Button>
-        <Button size='small' color='blue' outline onClick={() => onClickEdit(eqp.id)}>Edit</Button>
-        <Button size='small' color='red' outline onClick={() => onClickDelete(eqp.id)}>Delete</Button>
+        {
+          !eqp.isBilly &&
+          <Button size='small' color='blue' outline onClick={onClickBorrow}>
+            Borrow
+          </Button>
+        }
+        {
+          eqp.isBilly && eqp.billyUser.id === myInfo.id &&
+          <Button size='small' color='blue' outline onClick={onClickBorrow}>
+            Return
+          </Button>
+        }
+        <Button size='small' color='blue' outline onClick={onClickEdit}>Edit</Button>
+        <Button size='small' color='red' outline onClick={onClickDelete}>Delete</Button>
       </PageHeader>
-      <ListRow eqp={eqp} />
-      <Dialog
+      <EqpListRow eqp={eqp} />
+
+      <Modal
         title="장비 삭제"
         contents="정말로 삭제하시겠습니까?"
         onConfirm={onConfirmDelete}
         onCancel={onCancelDelete}
-        isVisible={dialog}
-      >
-      </Dialog>
+        isVisible={deleteModal}
+      />
+      <Modal
+        title={ eqp.isBilly ? '장비 반납' : '장비 대여'}
+        contents={ eqp.isBilly ? '해당 장비를 반납하시겠습니까?' : '해당 장비를 대여하시겠습니까?'}
+        onConfirm={onConfirmBorrow}
+        onCancel={onCancelBorrow}
+        isVisible={borrowModal}
+      />
     </StyledWrapper>
   );
 }

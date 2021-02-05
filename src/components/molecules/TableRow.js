@@ -14,7 +14,7 @@ const StyledList = styled.ul`
   
   li {
     display: inline-block;
-    width: calc((100% - 50px) / 12);
+    width: calc((100% - 50px) / ${Object.keys(eqpPropLabels).length - 1});
     padding: 0 0.5em;
     word-break: break-all;
     text-align: center;

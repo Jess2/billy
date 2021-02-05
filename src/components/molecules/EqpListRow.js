@@ -24,7 +24,7 @@ const StyledList = styled.ul`
   }
 `;
 
-export default function ListRow({eqp}) {
+export default function EqpListRow({eqp}) {
   return (
     <StyledList>
       {
@@ -38,6 +38,13 @@ export default function ListRow({eqp}) {
             </span>
           </li>
         ))
+      }
+      {
+        eqp.billyUser &&
+        <li>
+          <span>대여자</span>
+          <span>{`${eqp.billyUser.name} (${eqp.billyUser.email})`}</span>
+        </li>
       }
     </StyledList>
   );

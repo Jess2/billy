@@ -11,5 +11,6 @@
   "description": "추가정보",
   "currentLocation": "물품위치",
   "relBusiness": "관련사업",
-  "isBilly": "대여상태"
+  "isBilly": "대여상태",
+  "billyDate": "대여일"
 }

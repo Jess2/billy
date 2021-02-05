@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect, useRef, useContext} from 'react';
 import {useHistory} from 'react-router-dom';
 import styled from 'styled-components';
 import Button from '../atoms/Button';
@@ -6,6 +6,7 @@ import {postLogin} from "../../api/users";
 import Input from "../atoms/Input";
 import ErrorText from "../atoms/ErrorText";
 import validateEmail from "../../plugins/validateEmail";
+import {MyInfoSetContext} from "../../context/myInfo";
 
 const StyledForm = styled.div`
   width: 100%;
@@ -38,6 +39,7 @@ export default function LoginForm() {
   const [isLoading, setIsLoading] = useState(false);
   const emailRef = useRef();
   const passwordRef = useRef();
+  const setMyInfo = useContext(MyInfoSetContext);
 
   useEffect(() => {
     emailRef.current.focus();
@@ -57,6 +59,8 @@ export default function LoginForm() {
       postLogin(user.email, user.password).then(data => {
         setIsLoading(false);
         if (data) {
+          setMyInfo(data);
+          localStorage.removeItem('equipments');
           history.push(`/list`);
         } else {
           setErrorText('아이디 또는 비밀번호를 확인해 주세요.');

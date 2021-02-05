@@ -76,6 +76,7 @@ const sampleEquipments = [
     description: '', // 추가 정보
     relBusiness: '', // 관련 사업
     isBilly: true, // 대여 상태
+    billyDate: '2020-02-26', // 대여일
     currentLocation: '', // 물품 위치
     billyUser: {
       id: '117',
@@ -101,6 +102,7 @@ const sampleEquipments = [
     description: '', // 추가 정보
     relBusiness: '', // 관련 사업
     isBilly: false, // 대여 상태
+    billyDate: null, // 대여일
     currentLocation: '', // 물품 위치
     billyUser: null,
   },
@@ -119,6 +121,7 @@ const sampleEquipments = [
     description: '', // 추가 정보
     relBusiness: '', // 관련 사업
     isBilly: false, // 대여 상태
+    billyDate: null,
     currentLocation: '', // 물품 위치
     billyUser: null,
   }

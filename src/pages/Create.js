@@ -27,6 +27,7 @@ export default function Create() {
     currentLocation: '',
     relBusiness: '',
     isBilly: '',
+    billyUser: null,
   });
 
   const onChangeEqp = (newEqp) => {
