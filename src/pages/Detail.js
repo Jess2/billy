@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import styled from "styled-components";
 import PageHeader from "../components/molecules/PageHeader";
@@ -6,6 +6,7 @@ import Button from "../components/atoms/Button";
 import ListRow from "../components/molecules/ListRow";
 import {getEquipment, deleteEquipment, putEquipment} from "../api/equipments";
 import Modal from "../components/organisms/Modal";
+import {MyInfoContext} from "../context/myInfo";
 
 const StyledWrapper = styled.div`
   padding: 50px 0;
@@ -17,7 +18,8 @@ export default function Detail({ match }) {
   const [borrowModal, setBorrowModal] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
   const [selectedEqpId, setSelectedEqpId] = useState(null);
-
+  const myInfo = useContext(MyInfoContext);
+console.log(myInfo)
   const onClickEdit = () => {
     history.push(`/edit/${eqp.id}`);
   }
@@ -43,7 +45,7 @@ export default function Detail({ match }) {
   }
 
   const onConfirmBorrow = () => {
-    putEquipment(eqp.id, {...eqp, isBilly: !eqp.isBilly}).then(data => {
+    putEquipment(eqp.id, {...eqp, isBilly: !eqp.isBilly, billyUser: eqp.isBilly? {} : myInfo}).then(data => {
       setEqp(data);
       setBorrowModal(false);
     });
@@ -57,7 +59,7 @@ export default function Detail({ match }) {
     getEquipment(match.params.id).then(data => {
       setEqp(data);
     });
-  }, [match, eqp]);
+  }, [match]);
 
   useEffect(() => {
     return () => setDeleteModal(false); // cleanup function을 이용
@@ -66,9 +68,18 @@ export default function Detail({ match }) {
   return (
     <StyledWrapper>
       <PageHeader title='장비 상세'>
-        <Button size='small' color='blue' outline onClick={onClickBorrow}>
-          { eqp.isBilly ? 'Return' : 'Borrow' }
-        </Button>
+        {
+          !eqp.isBilly &&
+          <Button size='small' color='blue' outline onClick={onClickBorrow}>
+            Borrow
+          </Button>
+        }
+        {
+          eqp.isBilly && eqp.billyUser.id === myInfo.id &&
+          <Button size='small' color='blue' outline onClick={onClickBorrow}>
+            Return
+          </Button>
+        }
         <Button size='small' color='blue' outline onClick={onClickEdit}>Edit</Button>
         <Button size='small' color='red' outline onClick={onClickDelete}>Delete</Button>
       </PageHeader>
