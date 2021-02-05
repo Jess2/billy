@@ -9,7 +9,7 @@ const colorStyles = css`
       background: ${COLOR};
       &:not(:disabled):hover,
       &:not(:disabled):focus {
-        background: ${lighten(0.2, COLOR)};
+        background: ${lighten(0.1, COLOR)};
       }
       ${props =>
         props.outline &&

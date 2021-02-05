@@ -100,7 +100,7 @@ const ShortMarginButton = styled(Button)`
   }
 `;
 
-function Dialog({ title, contents, confirmText, cancelText, onConfirm, onCancel, isVisible }) {
+function Modal({ title, contents, confirmText, cancelText, onConfirm, onCancel, isVisible }) {
   const [animate, setAnimate] = useState(false);
   const [localVisible, setLocalVisible] = useState(isVisible);
 
@@ -130,9 +130,9 @@ function Dialog({ title, contents, confirmText, cancelText, onConfirm, onCancel,
   );
 }
 
-Dialog.defaultProps = {
+Modal.defaultProps = {
   confirmText: '확인',
   cancelText: '취소'
 };
 
-export default Dialog;
+export default Modal;

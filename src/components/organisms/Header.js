@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from "../atoms/Button";
-import Dialog from "./Dialog";
+import Modal from "./Modal";
 import logoImage from '../../assets/images/billy-logo-2.png';
 
 export default function Header() {
@@ -67,22 +67,22 @@ export default function Header() {
         <Button size='small' outline onClick={onClickHelp}>Help</Button>
         <Button size='small' color='pink' outline onClick={onClick}>Sign Out</Button>
       </div>
-      <Dialog
+      <Modal
         title="로그아웃"
         contents="로그아웃 하시겠습니까?"
         onConfirm={onConfirm}
         onCancel={onCancel}
         isVisible={dialog}
       >
-      </Dialog>
-      <Dialog
+      </Modal>
+      <Modal
         title="서비스 문의"
         contents="jess2.developer@gmail.com"
         cancelText="닫기"
         onCancel={onCancelHelp}
         isVisible={helpDialog}
       >
-      </Dialog>
+      </Modal>
     </StyledHeader>
   );
 }
