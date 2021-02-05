@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, {css} from 'styled-components';
-import {darken, lighten} from 'polished';
+import {lighten} from 'polished';
 
 const colorStyles = css`
   ${({theme, color}) => {
@@ -17,11 +17,9 @@ const colorStyles = css`
           color: ${COLOR};
           background: none;
           border: 1px solid ${COLOR};
-          &:hover {
+          &:not(:disabled):hover,
+          &:not(:disabled):focus {
             background: ${COLOR};
-            color: white;
-          }
-          &:focus {
             color: white;
           }
         `}
@@ -109,7 +107,7 @@ export default function Button({children, color, size, outline, fullWidth, loadi
       size={size}
       outline={outline}
       fullWidth={fullWidth}
-      loading={loading}
+      loading={loading ? 1 : 0}
       disabled={loading}
       {...rest}
     >
