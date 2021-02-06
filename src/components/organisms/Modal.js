@@ -123,7 +123,7 @@ function Modal({ title, contents, confirmText, cancelText, onConfirm, onCancel, 
         <p>{contents}</p>
         <ButtonGroup>
           <ShortMarginButton color="gray" onClick={onCancel}>{cancelText}</ShortMarginButton>
-          { onConfirm && <ShortMarginButton color="pink" onClick={onConfirm}>{confirmText}</ShortMarginButton> }
+          { onConfirm && <ShortMarginButton color="blue" onClick={onConfirm}>{confirmText}</ShortMarginButton> }
         </ButtonGroup>
       </DialogBlock>
     </DarkBackground>

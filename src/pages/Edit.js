@@ -28,7 +28,6 @@ export default function Edit({ match }) {
   });
 
   useEffect(() => {
-    console.log('id 변경')
     getEquipment(match.params.id).then(_eqp => {
       setEqp(_eqp);
     });
@@ -44,12 +43,14 @@ export default function Edit({ match }) {
     });
   }
 
+  const onClickCancel = () => {
+    history.goBack();
+  }
+
   return (
     <StyledWrapper>
       <PageHeader title='장비 수정'>
-        <Link to="/list">
-          <Button size='small' color='gray' outline>Cancel</Button>
-        </Link>
+        <Button size='small' color='gray' outline onClick={onClickCancel}>Cancel</Button>
         <Button size='small' color='blue' outline onClick={onClickSave}>Save</Button>
       </PageHeader>
       <EqpInputForm eqp={eqp} onChangeEqp={onChangeEqp} />

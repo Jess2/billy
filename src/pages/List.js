@@ -3,7 +3,7 @@ import {Link, useHistory} from "react-router-dom";
 import styled from 'styled-components';
 import Button from "../components/atoms/Button";
 import PageHeader from "../components/molecules/PageHeader";
-import TableRow from "../components/molecules/TableRow";
+import EqpTableRow from "../components/molecules/EqpTableRow";
 import {getEquipments} from "../api/equipments";
 
 const StyledWrapper = styled.div`
@@ -31,10 +31,10 @@ export default function List() {
           <Button size='small' color='blue' outline>+ Add</Button>
         </Link>
       </PageHeader>
-      <TableRow isLabel={true} />
+      <EqpTableRow isLabel={true} />
       { equipments &&
         equipments.map(eqp => (
-          <TableRow key={eqp.id} eqp={eqp} openEqpDetail={openEqpDetail} />
+          <EqpTableRow key={eqp.id} eqp={eqp} openEqpDetail={openEqpDetail} />
         ))
       }
     </StyledWrapper>
