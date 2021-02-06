@@ -75,7 +75,7 @@ export default function Header() {
       </div>
       <div>
         <Button size='small' outline onClick={onClickHelp}>Help</Button>
-        <Button size='small' color='pink' outline onClick={onClick}>Sign Out</Button>
+        { myInfo && <Button size='small' color='pink' outline onClick={onClick}>Sign Out</Button> }
       </div>
       <Modal
         title="로그아웃"
