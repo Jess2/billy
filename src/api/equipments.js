@@ -65,8 +65,8 @@ const sampleEquipments = [
     id: 1,
     type: 'Phone',
     purchaseDate: new Date('2017-04-01'), //구입년월
-    createDT: new Date('2018-03-27'),
-    UpdateDT: new Date('2020-12-07'),
+    createDate: new Date('2018-03-27'),
+    updateDate: new Date('2020-12-07'),
     productCode: 'F4HSW3AGHG7K', // 제품번호
     productName: 'iPhone 7', // 제품명
     modelName: 'A1905', // 모델명
@@ -83,16 +83,16 @@ const sampleEquipments = [
       name: 'jessie',
       role: 'u',
       email: 'test@g.com',
-      createDT: new Date('2020-02-26'),
-      updateDT: new Date('2021-01-04'),
+      createDate: new Date('2020-02-26'),
+      updateDate: new Date('2021-01-04'),
     },
   },
   {
     id: 2,
     type: 'Laptop',
     purchaseDate: new Date('2019-12-13'), //구입년월
-    createDT: new Date('2019-12-13'),
-    UpdateDT: new Date('2020-01-30'),
+    createDate: new Date('2019-12-13'),
+    updateDate: new Date('2020-01-30'),
     productCode: 'SW3AGHG7KF4H', // 제품번호
     productName: 'Macbook Pro 13', // 제품명
     modelName: 'C1905', // 모델명
@@ -110,8 +110,8 @@ const sampleEquipments = [
     id: 3,
     type: 'Tablet',
     purchaseDate: new Date('2021-01-01'), //구입년월
-    createDT: new Date('2021-01-22'),
-    UpdateDT: new Date('2021-02-01'),
+    createDate: new Date('2021-01-22'),
+    updateDate: new Date('2021-02-01'),
     productCode: '3AGHGF4HSW7K', // 제품번호
     productName: 'Galaxy Tab', // 제품명
     modelName: 'B0001', // 모델명

@@ -15,7 +15,7 @@ const StyledList = styled.ul`
   
   li {
     display: inline-block;
-    width: calc((100% - 50px) / ${Object.keys(eqpProps).length - 1});
+    width: calc((100% - 50px) / ${Object.keys(eqpProps).length - 2});
     padding: 0 0.5em;
     word-break: break-all;
     text-align: center;
@@ -34,23 +34,25 @@ export default function EqpTableRow({isLabel, eqp, openEqpDetail}) {
 
   return (
     <>
-      {isLabel
-        ? <StyledList className='list-header'>
-          {
-            Object.keys(eqpProps).map((key) => (
+      { isLabel &&
+        <StyledList className='list-header'>
+          { Object.keys(eqpProps).map((key) => (
+            eqpProps[key].isSimpleData && (
               <li key={key}>{eqpProps[key].label}</li>
-            ))
+            )))
           }
         </StyledList>
-        : <StyledList onClick={() => onClickEqp(eqp)}>
-          {
-            Object.keys(eqpProps).map((key) => (
+      }
+      { !isLabel &&
+        <StyledList onClick={() => onClickEqp(eqp)}>
+          { Object.keys(eqpProps).map((key) => (
+            eqpProps[key].isSimpleData && (
               <li key={key}>
                 { key === 'isBilly' &&
                   (eqp[key] ? '대여 중' : '대여 가능')
                 }
                 { eqpProps[key].type === 'Date' && eqp[key] &&
-                <Moment format={eqpProps[key].dateFormat}>
+                  <Moment format={eqpProps[key].dateFormat}>
                     {eqp[key]}
                   </Moment>
                 }
@@ -61,7 +63,7 @@ export default function EqpTableRow({isLabel, eqp, openEqpDetail}) {
                   '-'
                 }
               </li>
-            ))
+            )))
           }
         </StyledList>
       }
