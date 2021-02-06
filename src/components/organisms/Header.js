@@ -1,18 +1,34 @@
-import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
+import React, {useContext, useState} from 'react';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from "../atoms/Button";
 import Modal from "./Modal";
 import logoImage from '../../assets/images/billy-logo-2.png';
+import {MyInfoContext, MyInfoSetContext} from '../../context/myInfo';
 
 export default function Header() {
+  const history = useHistory();
   const [dialog, setDialog] = useState(false);
   const [helpDialog, setHelpDialog] = useState(false);
+  const myInfo = useContext(MyInfoContext);
+  const setMyInfo = useContext(MyInfoSetContext);
+
+  const onClickLogo = () => {
+    if (history.location.pathname !== '/list') {
+      if (myInfo) {
+        history.push(`/list`);
+      } else {
+        history.push(`/`);
+      }
+    }
+  };
   const onClick = () => {
     setDialog(true);
   };
   const onConfirm = () => {
     setDialog(false);
+    setMyInfo(null);
+    history.push(`/`);
   };
   const onCancel = () => {
     setDialog(false);
@@ -38,17 +54,13 @@ export default function Header() {
       height: 100%;
       
       h5 {
+        display: flex;
+        align-items: center;
         height: 100%;
-        color: #919191;
+        cursor: pointer;
         
-        a {
-          display: flex;
-          align-items: center;
-          height: 100%;
-        
-          img {
-            height: 60%;
-          }
+        img {
+          height: 60%;
         }
       }
     }
@@ -57,10 +69,8 @@ export default function Header() {
   return (
     <StyledHeader>
       <div>
-        <h5>
-          <Link to="/">
-            <img src={logoImage} alt='Logo' />
-          </Link>
+        <h5 role='button'>
+          <img src={logoImage} alt='Logo' onClick={onClickLogo} />
         </h5>
       </div>
       <div>

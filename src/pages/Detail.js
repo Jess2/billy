@@ -19,6 +19,7 @@ export default function Detail({ match }) {
   const [deleteModal, setDeleteModal] = useState(false);
   const [selectedEqpId, setSelectedEqpId] = useState(null);
   const myInfo = useContext(MyInfoContext);
+
   const onClickEdit = () => {
     history.push(`/edit/${eqp.id}`);
   }
