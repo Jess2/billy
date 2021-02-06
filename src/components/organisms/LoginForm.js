@@ -48,12 +48,16 @@ export default function LoginForm() {
   const onClickSignIn = () => {
     if (!user.email && !user.password) {
       setErrorText('아이디 및 비밀번호를 입력하세요.');
+      emailRef.current.focus();
     } else if (!user.email) {
       setErrorText('아이디를 입력하세요.');
+      emailRef.current.focus();
     } else if (!user.password) {
       setErrorText('비밀번호를 입력하세요.');
+      passwordRef.current.focus();
     } else if (!validateEmail(user.email)) {
       setErrorText('아이디는 이메일 형식이어야 합니다.');
+      emailRef.current.focus();
     } else {
       setIsLoading(true);
       postLogin(user.email, user.password).then(data => {
@@ -64,6 +68,7 @@ export default function LoginForm() {
           history.push(`/list`);
         } else {
           setErrorText('아이디 또는 비밀번호를 확인해 주세요.');
+          emailRef.current.focus();
         }
       });
     }
