@@ -60,10 +60,11 @@ export default function LoginForm() {
       emailRef.current.focus();
     } else {
       setIsLoading(true);
-      postLogin(user.email, user.password).then(data => {
+      postLogin(user.email, user.password).then(myInfo => {
         setIsLoading(false);
-        if (data) {
-          setMyInfo(data);
+        if (myInfo) {
+          setMyInfo(myInfo);
+          sessionStorage.setItem('myInfo', JSON.stringify(myInfo));
           localStorage.removeItem('equipments');
           history.push(`/list`);
         } else {

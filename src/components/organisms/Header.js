@@ -28,6 +28,7 @@ export default function Header() {
   const onConfirm = () => {
     setDialog(false);
     setMyInfo(null);
+    sessionStorage.removeItem('myInfo');
     history.push(`/`);
   };
   const onCancel = () => {

@@ -20,7 +20,9 @@ const StyledBody = styled.div`
 
 export default function App() {
   const [equipments, setEquipments] = useState([]);
-  const [myInfo, setMyInfo] = useState({});
+
+  const myInfoInStorage = sessionStorage.getItem('myInfo') ? JSON.parse(sessionStorage.getItem('myInfo')) : null;
+  const [myInfo, setMyInfo] = useState(myInfoInStorage);
 
   useEffect(() => {
     getEquipments().then(data => setEquipments(data));

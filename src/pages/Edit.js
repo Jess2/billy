@@ -28,7 +28,6 @@ export default function Edit({ match }) {
   });
 
   useEffect(() => {
-    console.log('id 변경')
     getEquipment(match.params.id).then(_eqp => {
       setEqp(_eqp);
     });
