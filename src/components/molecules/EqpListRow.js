@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
-import eqpPropLabels from '../../assets/data/eqpPropLabels.json';
+import eqpProps from '../../assets/data/eqpProps.json';
+import Moment from "react-moment";
 
 const StyledList = styled.ul`
   width: 100%;
@@ -28,13 +29,24 @@ export default function EqpListRow({eqp}) {
   return (
     <StyledList>
       {
-        Object.keys(eqpPropLabels).map((key) => (
+        Object.keys(eqpProps).map((key) => (
           <li key={key}>
-            <span>{eqpPropLabels[key]}</span>
+            <span>{eqpProps[key].label}</span>
             <span>
-              {key === 'isBilly'
-                ? (eqp[key] ? '대여 중' : '대여 가능')
-                : eqp[key] || '-'}
+              { key === 'isBilly' &&
+                (eqp[key] ? '대여 중' : '대여 가능')
+              }
+              { eqpProps[key].type === 'Date' && eqp[key] &&
+                <Moment format={eqpProps[key].dateFormat}>
+                  {eqp[key]}
+                </Moment>
+              }
+              { eqpProps[key].type !== 'Date' && key !== 'isBilly' &&
+                eqp[key]
+              }
+              { eqpProps[key].type !== 'Boolean' && !eqp[key] &&
+                '-'
+              }
             </span>
           </li>
         ))

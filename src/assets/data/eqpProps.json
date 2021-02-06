@@ -1,0 +1,88 @@
+{
+  "id": {
+    "label": "Id",
+    "type": "Number",
+    "isDetailData": false,
+    "isPossibleSort": true
+  },
+  "type": {
+    "label": "분류",
+    "type": "String",
+    "isDetailData": false,
+    "isPossibleSort": true
+  },
+  "purchaseDate": {
+    "label": "구입일",
+    "type": "Date",
+    "dateFormat": "YYYY-MM-DD",
+    "isDetailData": false,
+    "isPossibleSort": true
+  },
+  "regCode": {
+    "label": "관리번호",
+    "type": "String",
+    "isDetailData": false,
+    "isPossibleSort": true
+  },
+  "manufacturer": {
+    "label": "제조사",
+    "type": "String",
+    "isDetailData": false,
+    "isPossibleSort": true
+  },
+  "productName": {
+    "label": "제품명",
+    "type": "String",
+    "isDetailData": false,
+    "isPossibleSort": true
+  },
+  "modelName": {
+    "label": "모델명",
+    "type": "String",
+    "isDetailData": false,
+    "isPossibleSort": true
+  },
+  "productCode": {
+    "label": "제품번호",
+    "type": "String",
+    "isDetailData": false,
+    "isPossibleSort": true
+  },
+  "specification": {
+    "label": "규격/설명",
+    "type": "String",
+    "isDetailData": false,
+    "isPossibleSort": true
+  },
+  "description": {
+    "label": "추가정보",
+    "type": "String",
+    "isDetailData": false,
+    "isPossibleSort": true
+  },
+  "currentLocation": {
+    "label": "물품위치",
+    "type": "String",
+    "isDetailData": false,
+    "isPossibleSort": true
+  },
+  "relBusiness": {
+    "label": "관련사업",
+    "type": "String",
+    "isDetailData": false,
+    "isPossibleSort": true
+  },
+  "isBilly": {
+    "label": "대여상태",
+    "type": "Boolean",
+    "isDetailData": false,
+    "isPossibleSort": true
+  },
+  "billyDate": {
+    "label": "대여일시",
+    "type": "Date",
+    "dateFormat": "YYYY-MM-DD HH:mm",
+    "isDetailData": false,
+    "isPossibleSort": true
+  }
+}
