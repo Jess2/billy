@@ -81,11 +81,7 @@ export default function LoginForm() {
 
   const onKeyPress = (e) => {
     if (e.key === 'Enter') {
-      if (e.target.name === 'email') {
-        passwordRef.current.focus();
-      } else if (e.target.name === 'password') {
-        onClickSignIn();
-      }
+      onClickSignIn();
     }
   }
 
