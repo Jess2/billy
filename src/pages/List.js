@@ -10,6 +10,10 @@ import eqpPropsObj from '../assets/data/eqpProps.json';
 
 const StyledWrapper = styled.div`
   padding: 50px 0;
+  
+  .search-input {
+    width: 60%;
+  }
 `;
 
 export default function List() {
@@ -44,7 +48,6 @@ export default function List() {
       equipments.forEach(eqp => {
         Object.keys(eqpPropsObj).forEach(key => {
           if (typeof eqp[key] === 'string' && eqp[key].toLowerCase().includes(_searchWord.toLowerCase())) {
-            console.log(eqp[key])
             if (!eqpSet.has(eqp)) {
               eqpSet.add(eqp);
             }
@@ -60,7 +63,7 @@ export default function List() {
   return (
     <StyledWrapper>
       <PageHeader title='장비 목록'>
-        <Input size='small' placeholder='Search' onChange={onChangeSearch}/>
+        <Input size='small' placeholder='Search' className='search-input' onChange={onChangeSearch}/>
         <Link to="/create">
           <Button size='small' color='blue' outline>+ Add</Button>
         </Link>
