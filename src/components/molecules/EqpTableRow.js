@@ -81,11 +81,11 @@ export default function EqpTableRow({isLabel, equipments, setEquipments, eqp, op
             eqpProps[key].isSimpleData && (
               <li key={key} onClick={() => onClickHeadList(key)}>
                 <span>{eqpProps[key].label}</span>
-                {!eqpProps[key].isSorted && <TiArrowUnsorted/>}
+                {!eqpProps[key].isSorted && <TiArrowUnsorted color='#b7b7b7'/>}
                 {eqpProps[key].isSorted &&
                   (eqpProps[key].isSortedDesc
-                    ? <TiArrowSortedDown/>
-                    : <TiArrowSortedUp/>
+                    ? <TiArrowSortedDown />
+                    : <TiArrowSortedUp />
                   )
                 }
               </li>

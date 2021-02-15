@@ -6,6 +6,7 @@ import PageHeader from "../components/molecules/PageHeader";
 import EqpTableRow from "../components/molecules/EqpTableRow";
 import {getEquipments} from "../api/equipments";
 import Input from '../components/atoms/Input';
+import eqpPropsObj from '../assets/data/eqpProps.json';
 
 const StyledWrapper = styled.div`
   padding: 50px 0;
@@ -39,9 +40,18 @@ export default function List() {
 
   const findSearchedEqp = (_searchWord) => {
     if (_searchWord) {
-      return equipments.filter(eqp => {
-        return eqp.manufacturer.toLowerCase().includes(_searchWord.toLowerCase());
+      let eqpSet = new Set();
+      equipments.forEach(eqp => {
+        Object.keys(eqpPropsObj).forEach(key => {
+          if (typeof eqp[key] === 'string' && eqp[key].toLowerCase().includes(_searchWord.toLowerCase())) {
+            console.log(eqp[key])
+            if (!eqpSet.has(eqp)) {
+              eqpSet.add(eqp);
+            }
+          }
+        });
       });
+      return Array.from(eqpSet);
     } else {
       return equipments;
     }
