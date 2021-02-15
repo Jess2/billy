@@ -31,7 +31,7 @@ export default function List() {
           <Button size='small' color='blue' outline>+ Add</Button>
         </Link>
       </PageHeader>
-      <EqpTableRow isLabel={true} />
+      <EqpTableRow isLabel={true} equipments={equipments} setEquipments={setEquipments} />
       { equipments &&
         equipments.map(eqp => (
           <EqpTableRow key={eqp.id} eqp={eqp} openEqpDetail={openEqpDetail} />

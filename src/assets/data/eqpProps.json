@@ -3,93 +3,123 @@
     "label": "Id",
     "type": "Number",
     "isSimpleData": true,
-    "isPossibleSort": true
+    "isPossibleSort": true,
+    "isSorted": false,
+    "isSortedDesc": true
   },
   "type": {
     "label": "분류",
     "type": "String",
     "isSimpleData": true,
-    "isPossibleSort": true
+    "isPossibleSort": true,
+    "isSorted": false,
+    "isSortedDesc": true
   },
   "purchaseDate": {
     "label": "구입일",
     "type": "Date",
     "dateFormat": "YYYY-MM-DD",
     "isSimpleData": false,
-    "isPossibleSort": true
+    "isPossibleSort": true,
+    "isSorted": false,
+    "isSortedDesc": true
   },
   "createDate": {
     "label": "등록일시",
     "type": "Date",
     "dateFormat": "YYYY-MM-DD HH:mm",
     "isSimpleData": true,
-    "isPossibleSort": true
+    "isPossibleSort": true,
+    "isSorted": false,
+    "isSortedDesc": true
   },
   "regCode": {
     "label": "관리번호",
     "type": "String",
     "isSimpleData": true,
-    "isPossibleSort": true
+    "isPossibleSort": true,
+    "isSorted": false,
+    "isSortedDesc": true
   },
   "manufacturer": {
     "label": "제조사",
     "type": "String",
     "isSimpleData": true,
-    "isPossibleSort": true
+    "isPossibleSort": true,
+    "isSorted": false,
+    "isSortedDesc": true
   },
   "productName": {
     "label": "제품명",
     "type": "String",
     "isSimpleData": true,
-    "isPossibleSort": true
+    "isPossibleSort": true,
+    "isSorted": false,
+    "isSortedDesc": true
   },
   "modelName": {
     "label": "모델명",
     "type": "String",
     "isSimpleData": true,
-    "isPossibleSort": true
+    "isPossibleSort": true,
+    "isSorted": false,
+    "isSortedDesc": true
   },
   "productCode": {
     "label": "제품번호",
     "type": "String",
     "isSimpleData": true,
-    "isPossibleSort": true
+    "isPossibleSort": true,
+    "isSorted": false,
+    "isSortedDesc": true
   },
   "specification": {
     "label": "규격/설명",
     "type": "String",
     "isSimpleData": true,
-    "isPossibleSort": true
+    "isPossibleSort": true,
+    "isSorted": false,
+    "isSortedDesc": true
   },
   "description": {
     "label": "추가정보",
     "type": "String",
     "isSimpleData": true,
-    "isPossibleSort": true
+    "isPossibleSort": true,
+    "isSorted": false,
+    "isSortedDesc": true
   },
   "currentLocation": {
     "label": "물품위치",
     "type": "String",
     "isSimpleData": true,
-    "isPossibleSort": true
+    "isPossibleSort": true,
+    "isSorted": false,
+    "isSortedDesc": true
   },
   "relBusiness": {
     "label": "관련사업",
     "type": "String",
     "isSimpleData": true,
-    "isPossibleSort": true
+    "isPossibleSort": true,
+    "isSorted": false,
+    "isSortedDesc": true
   },
   "isBilly": {
     "label": "대여상태",
     "type": "Boolean",
     "isSimpleData": true,
-    "isPossibleSort": true
+    "isPossibleSort": true,
+    "isSorted": false,
+    "isSortedDesc": true
   },
   "billyDate": {
     "label": "대여일시",
     "type": "Date",
     "dateFormat": "YYYY-MM-DD HH:mm",
     "isSimpleData": true,
-    "isPossibleSort": true
+    "isPossibleSort": true,
+    "isSorted": false,
+    "isSortedDesc": true
   }
 }

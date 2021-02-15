@@ -51,6 +51,13 @@ const globalStyles = createGlobalStyle`
   *:focus {
     outline: ${({ theme }) => theme.palette['darkgray']} auto 1px;
   }
+  button {
+    background: none;
+    border: none;
+    outline: none;
+    margin: 0;
+    padding: 0;
+  }
   a, button {
     &:focus {
       outline: none;
