@@ -7,6 +7,7 @@ import EqpTableRow from "../components/molecules/EqpTableRow";
 import {getEquipments} from "../api/equipments";
 import Input from '../components/atoms/Input';
 import eqpPropsObj from '../assets/data/eqpProps.json';
+import Tab from '../components/molecules/tab';
 
 const StyledWrapper = styled.div`
   padding: 50px 0;
@@ -68,6 +69,7 @@ export default function List() {
           <Button size='small' color='blue' outline>+ Add</Button>
         </Link>
       </PageHeader>
+      <Tab />
       <EqpTableRow isLabel={true} equipments={equipments} setEquipments={setEquipments} />
       { searchedEqps.length > 0 &&
         searchedEqps.map(eqp => (
