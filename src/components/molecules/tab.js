@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 
 const StyledTab = styled.ul`
@@ -9,31 +9,46 @@ const StyledTab = styled.ul`
   margin-bottom: 15px;
   
   li {
+    background: white;
     border: 1px solid gray;
     border-bottom: none;
     padding: 8px 20px;
     border-radius: 5px 5px 0 0;
     margin-left: 10px;
-    cursor: pointer;
     
     &:first-child {
       margin-left: 0;
     }
     
-    &:hover {
+    &:not(.selected):hover {
       background: lightgray;
+      cursor: pointer;
+    }
+    
+    &.selected {
+      margin-bottom: -1px;
+      cursor: default;
     }
   }
 `;
 
-function Tab({children, title}) {
+export default function Tab({children, tabs}) {
+  const [selectedTab, setSelectedTab] = useState('Phone');
+
+  const onClickTab = (tab) => {
+    setSelectedTab(tab);
+  };
+
   return (
     <StyledTab>
-      <li>Phone</li>
-      <li>Laptop</li>
-      <li>Tablet</li>
+      { tabs.map((tab, index) => (
+          <li key={index} className={tab === selectedTab ? 'selected' : null} onClick={() => onClickTab(tab)}>{ tab }</li>
+        ))
+      }
     </StyledTab>
   );
 }
 
-export default Tab;
+Tab.defaultProps = {
+  tabs: [],
+}
