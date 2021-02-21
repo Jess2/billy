@@ -21,6 +21,11 @@ export default function List() {
   const [equipments, setEquipments] = useState([]);
   const [searchWord, setSearchWord] = useState('');
   const [searchedEqps, setSearchedEqps] = useState([]);
+  const [eqpTypes, setEqpTypes] = useState([
+    'Phone',
+    'Laptop',
+    'Tablet',
+  ]);
   const history = useHistory();
 
   useEffect(() => {
@@ -69,7 +74,7 @@ export default function List() {
           <Button size='small' color='blue' outline>+ Add</Button>
         </Link>
       </PageHeader>
-      <Tab />
+      { eqpTypes && <Tab tabs={eqpTypes}/> }
       <EqpTableRow isLabel={true} equipments={equipments} setEquipments={setEquipments} />
       { searchedEqps.length > 0 &&
         searchedEqps.map(eqp => (
