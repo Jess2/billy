@@ -22,7 +22,7 @@ export default function List() {
   const [searchWord, setSearchWord] = useState('');
   const [searchedEqps, setSearchedEqps] = useState([]);
   const [eqpTypes, setEqpTypes] = useState([]);
-  const [selectedEqpType, setSelectedEqpType] = useState('');
+  const [selectedEqpType, setSelectedEqpType] = useState(null);
   const history = useHistory();
 
   useEffect(() => {
@@ -49,7 +49,6 @@ export default function List() {
     let typeArr = Array.from(typeSet);
 
     setEqpTypes(typeArr);
-    typeArr.length > 0 && setSelectedEqpType(typeArr[0]);
   };
 
   const openEqpDetail = (eqp) => {
@@ -62,9 +61,13 @@ export default function List() {
   };
 
   const findSearchedEqp = (_searchWord) => {
-    const filteredEqpByType = equipments.filter(eqp => {
-      return eqp.type === selectedEqpType;
-    });
+    let filteredEqpByType = equipments;
+
+    if (selectedEqpType) {
+      filteredEqpByType = equipments.filter(eqp => {
+        return eqp.type === selectedEqpType;
+      });
+    }
 
     if (_searchWord) {
       let eqpSet = new Set();
