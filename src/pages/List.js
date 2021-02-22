@@ -32,12 +32,25 @@ export default function List() {
     getEquipments().then(data => {
       setEquipments(data);
       setSearchedEqps(data);
+      makeEqpTypes(data);
     });
   }, []);
 
   useEffect(() => {
     setSearchedEqps(findSearchedEqp(searchWord));
   }, [equipments]);
+
+  const makeEqpTypes = (eqps) => {
+    let typeSet = new Set();
+
+    eqps.forEach(eqp => {
+      if (!typeSet.has(eqp.type)) {
+        typeSet.add(eqp.type);
+      }
+    });
+
+    setEqpTypes(Array.from(typeSet));
+  };
 
   const openEqpDetail = (eqp) => {
     history.push(`/detail/${eqp.id}`);
