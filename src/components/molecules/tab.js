@@ -37,15 +37,19 @@ export default function Tab({children, tabs, selectedTab, setSelectedTab}) {
     setSelectedTab(tab);
   };
 
+  const onClickTabAll = () => {
+    setSelectedTab(null);
+  };
+
   return (
     <StyledTab>
+      <li onClick={onClickTabAll} className={!selectedTab ? 'selected' : null}>All</li>
       { tabs.map((tab, index) => (
-          <li key={index} className={tab === selectedTab ? 'selected' : null}
-              onClick={() => onClickTab(tab)}>
-            { tab }
-          </li>
-        ))
-      }
+        <li key={index} className={tab === selectedTab ? 'selected' : null}
+            onClick={() => onClickTab(tab)}>
+          {tab}
+        </li>
+      ))}
     </StyledTab>
   );
 }
