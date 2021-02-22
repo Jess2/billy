@@ -21,26 +21,23 @@ export default function List() {
   const [equipments, setEquipments] = useState([]);
   const [searchWord, setSearchWord] = useState('');
   const [searchedEqps, setSearchedEqps] = useState([]);
-  const [eqpTypes, setEqpTypes] = useState([
-    'Phone',
-    'Laptop',
-    'Tablet',
-  ]);
+  const [eqpTypes, setEqpTypes] = useState([]);
+  const [selectedEqpType, setSelectedEqpType] = useState('');
   const history = useHistory();
 
   useEffect(() => {
     getEquipments().then(data => {
       setEquipments(data);
       setSearchedEqps(data);
-      makeEqpTypes(data);
+      createEqpTypes(data);
     });
   }, []);
 
   useEffect(() => {
     setSearchedEqps(findSearchedEqp(searchWord));
-  }, [equipments]);
+  }, [equipments, selectedEqpType]);
 
-  const makeEqpTypes = (eqps) => {
+  const createEqpTypes = (eqps) => {
     let typeSet = new Set();
 
     eqps.forEach(eqp => {
@@ -49,7 +46,10 @@ export default function List() {
       }
     });
 
-    setEqpTypes(Array.from(typeSet));
+    let typeArr = Array.from(typeSet);
+
+    setEqpTypes(typeArr);
+    typeArr.length > 0 && setSelectedEqpType(typeArr[0]);
   };
 
   const openEqpDetail = (eqp) => {
@@ -62,9 +62,13 @@ export default function List() {
   };
 
   const findSearchedEqp = (_searchWord) => {
+    const filteredEqpByType = equipments.filter(eqp => {
+      return eqp.type === selectedEqpType;
+    });
+
     if (_searchWord) {
       let eqpSet = new Set();
-      equipments.forEach(eqp => {
+      filteredEqpByType.forEach(eqp => {
         Object.keys(eqpPropsObj).forEach(key => {
           if (typeof eqp[key] === 'string' && eqp[key].toLowerCase().includes(_searchWord.toLowerCase())) {
             if (!eqpSet.has(eqp)) {
@@ -75,7 +79,7 @@ export default function List() {
       });
       return Array.from(eqpSet);
     } else {
-      return equipments;
+      return filteredEqpByType;
     }
   };
 
@@ -87,7 +91,7 @@ export default function List() {
           <Button size='small' color='blue' outline>+ Add</Button>
         </Link>
       </PageHeader>
-      { eqpTypes && <Tab tabs={eqpTypes}/> }
+      { eqpTypes.length > 0 && <Tab tabs={eqpTypes} selectedTab={selectedEqpType} setSelectedTab={setSelectedEqpType} /> }
       <EqpTableRow isLabel={true} equipments={equipments} setEquipments={setEquipments} />
       { searchedEqps.length > 0 &&
         searchedEqps.map(eqp => (

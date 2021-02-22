@@ -32,9 +32,7 @@ const StyledTab = styled.ul`
   }
 `;
 
-export default function Tab({children, tabs}) {
-  const [selectedTab, setSelectedTab] = useState('Phone');
-
+export default function Tab({children, tabs, selectedTab, setSelectedTab}) {
   const onClickTab = (tab) => {
     setSelectedTab(tab);
   };
@@ -42,7 +40,10 @@ export default function Tab({children, tabs}) {
   return (
     <StyledTab>
       { tabs.map((tab, index) => (
-          <li key={index} className={tab === selectedTab ? 'selected' : null} onClick={() => onClickTab(tab)}>{ tab }</li>
+          <li key={index} className={tab === selectedTab ? 'selected' : null}
+              onClick={() => onClickTab(tab)}>
+            { tab }
+          </li>
         ))
       }
     </StyledTab>
